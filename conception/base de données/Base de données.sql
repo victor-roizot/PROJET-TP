@@ -1,8 +1,8 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
-CREATE DATABASE PROJET_TP CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';
-USE PROJET_TP;
+CREATE DATABASE PROJETTP CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';
+USE PROJETTP;
 
 #------------------------------------------------------------
 # Table: HuBX02_categories
