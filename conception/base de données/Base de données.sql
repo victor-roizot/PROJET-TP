@@ -51,9 +51,11 @@ CREATE TABLE HuBX02_usersroles(
 
 CREATE TABLE HuBX02_users(
         id                   Int  Auto_increment  NOT NULL ,
-        firstname            Varchar (20) NOT NULL ,
-        lastname             Varchar (20) NOT NULL ,
+        lastname             Varchar (50) NOT NULL ,
+        firstname            Varchar (50) NOT NULL ,
         address              Varchar (255) NOT NULL ,
+        zipCode              Int NOT NULL ,
+        city                 Varchar (50) NOT NULL ,
         phoneNumber          Varchar (15) NOT NULL ,
         email                Varchar (100) NOT NULL ,
         password             Varchar (255) NOT NULL ,
