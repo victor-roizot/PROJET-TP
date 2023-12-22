@@ -7,9 +7,14 @@ $regex = [
 ];
 
 // MESSAGES D'ERREUR
-define('USERS_USERNAME_ERROR_EMPTY', 'Le nom d\'utilisateur est requis');
-define('USERS_USERNAME_ERROR_INVALID', 'Le nom d\'utilisateur est invalide. Il ne peut contenir que des lettres, des espaces, des tirets et des apostrophes');
-define('USERS_USERNAME_ERROR_EXISTS', 'Le nom d\'utilisateur existe déjà');
+define('USERS_LASTNAME_ERROR_EMPTY', 'Le nom d\'utilisateur est requis');
+define('USERS_LASTNAME_ERROR_INVALID', 'Le nom d\'utilisateur est invalide. Il ne peut contenir que des lettres, des espaces, des tirets et des apostrophes');
+define('USERS_LASTNAME_ERROR_EXISTS', 'Le nom d\'utilisateur existe déjà');
+
+define('USERS_FIRSTNAME_ERROR_EMPTY', 'Le nom d\'utilisateur est requis');
+define('USERS_FIRSTNAME_ERROR_INVALID', 'Le nom d\'utilisateur est invalide. Il ne peut contenir que des lettres, des espaces, des tirets et des apostrophes');
+
+// rajout  address zipCode city
 
 define('USERS_EMAIL_ERROR_EMPTY', 'L\'adresse email est requise');
 define('USERS_EMAIL_ERROR_INVALID', 'L\'adresse email est invalide. Elle ne peut contenir que des lettres, des chiffres, des tirets, des underscores, des points et des arobases');
@@ -20,5 +25,7 @@ define('USERS_PASSWORD_ERROR_INVALID', 'Le mot de passe est invalide. Il doit co
 define('USERS_PASSWORD_CONFIRM_ERROR_INVALID', 'La confirmation du mot de passe est invalide. Les mots de passe ne correspondent pas');
 define('USERS_PASSWORD_CONFIRM_ERROR_EMPTY', 'La confirmation du mot de passe est requise');
 
+/*
 define('USERS_BIRTHDATE_ERROR_EMPTY', 'La date de naissance est requise');
 define('USERS_BIRTHDATE_ERROR_INVALID', 'La date de naissance est invalide. Elle doit être au format YYYY-MM-DD');
+*/

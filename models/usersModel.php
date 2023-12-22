@@ -16,7 +16,7 @@ class Users
     public function __construct()
     {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=projet_tp;charset=utf8', 'root', '');
+            $this->pdo = new PDO('mysql:host=localhost;dbname=projet_tp;charset=utf8', 'maT512Mo', '6qJq2Sqb=28C[');
         } catch(PDOException $e){
             header('Location: /index.php');
         }

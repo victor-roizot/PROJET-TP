@@ -8,6 +8,7 @@
 function clean($string)
 {
     $string = trim($string);
+     //Supprime les espaces ou d'autres caractères en début et fin de chaîne
     $string = strip_tags($string);
     return $string;
 }

@@ -10,18 +10,31 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new Users();
 
-    if (!empty($_POST['username'])) {
-        if (preg_match($regex['name'], $_POST['username'])) {
-            $user->username = clean($_POST['username']);
-            if ($user->checkIfExistsByUsername() == 1) {
-                $errors['username'] = USERS_USERNAME_ERROR_EXISTS;
+    if (!empty($_POST['lastname'])) {
+        if (preg_match($regex['name'], $_POST['lastname'])) {
+            $user->lastname = clean($_POST['lastname']);
+            if ($user->checkIfExistsByLastname() == 1) {
+                $errors['lastname'] = USERS_LASTNAME_ERROR_EXISTS;
             }
         } else {
-            $errors['username'] = USERS_USERNAME_ERROR_INVALID;
+            $errors['lastname'] = USERS_LASTNAME_ERROR_INVALID;
         }
     } else {
-        $errors['username'] = USERS_USERNAME_ERROR_EMPTY;
+        $errors['lastname'] = USERS_LASTNAME_ERROR_EMPTY;
     }
+
+    if (!empty($_POST['firstname'])) {
+        if (preg_match($regex['name'], $_POST['firstname'])) {
+            $user->firstname = clean($_POST['firsname']);
+        } else {
+            $errors['firstname'] = USERS_FIRSTNAME_ERROR_INVALID;
+        }
+    } else {
+        $errors['firsname'] = USERS_FIRSTNAME_ERROR_EMPTY;
+    }
+
+
+    //rajout  address zipCode city
 
     if (!empty($_POST['email'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -54,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
     }
 
-    if (!empty($_POST['birthdate'])) {
+    /*    if (!empty($_POST['birthdate'])) {
         if (preg_match($regex['date'], $_POST['birthdate'])) {
             if (checkDateValidity($_POST['birthdate'])) {
                 $user->birthdate = $_POST['birthdate'];
@@ -67,9 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $errors['birthdate'] = USERS_BIRTHDATE_ERROR_EMPTY;
     }
-
+    */
     if (empty($errors)) {
-        if($user->create()) {
+        if ($user->createUser()) {
             $success = 'L\'utilisateur a bien été créé';
         }
     }
