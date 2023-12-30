@@ -80,7 +80,7 @@ class Users
     public function delete() {
 
     }
-     
+
     public function getById() {
 
     }
