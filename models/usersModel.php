@@ -8,7 +8,7 @@ class Users
     public string $address;
     public int $zipCode;
     public string $city;
-    public string $phoneNumber;
+    public int $phoneNumber;
     public string $email;
     public string $password;
     public int $id_usersroles;
@@ -31,7 +31,7 @@ class Users
     {
         $sql = 'SELECT COUNT(`phoneNumber`) FROM `HuBX02_users` WHERE `phoneNumber` = :phoneNumber';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
@@ -57,7 +57,7 @@ class Users
      * @param string $address L'adresse de l'utilisateur
      * @param int $zipCode Le code postal de l'utilisateur
      * @param string $city La ville de l'utilisateur
-     * @param string $phoneNumber Le numéro de téléphone de l'utilisateur
+     * @param int $phoneNumber Le numéro de téléphone de l'utilisateur
      * @param string $email L'adresse email de l'utilisateur
      * @param string $password Le mot de passe hashé de l'utilisateur
      * @param string $id_usersroles Role de l'utilisateur
@@ -73,7 +73,7 @@ class Users
         $req->bindValue(':address', $this->address, PDO::PARAM_STR);
         $req->bindValue(':zipCode', $this->zipCode, PDO::PARAM_INT);
         $req->bindValue(':city', $this->city, PDO::PARAM_STR);
-        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_INT);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->bindValue(':password', $this->password, PDO::PARAM_STR);
         $req->bindValue(':id_usersroles', $this->id_usersroles, PDO::PARAM_INT);

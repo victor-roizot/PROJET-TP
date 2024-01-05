@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!empty($_POST['address'])) {
-        if (preg_match($regex['address'], $_POST['address'])) { //creer la regex address
+        if (preg_match($regex['address'], $_POST['address'])) {
             $user->address = clean($_POST['address']);
         } else {
             $errors['address'] = USERS_ADDRESS_ERROR_INVALID;
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!empty($_POST['zipCode'])) {
-        if (preg_match($regex['zipCode'], $_POST['zipCode'])) { //creer la regex zipCode
+        if (preg_match($regex['zipCode'], $_POST['zipCode'])) {
             $user->zipCode = strip_tags($_POST['zipCode']);
         } else {
             $errors['zipCode'] = USERS_ZIPCODE_ERROR_INVALID;
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!empty($_POST['city'])) {
-        if (preg_match($regex['city'], $_POST['city'])) { //creer la regex city
+        if (preg_match($regex['city'], $_POST['city'])) {
             $user->city = clean($_POST['city']);
         } else {
             $errors['city'] = USERS_CITY_ERROR_INVALID;
@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['city'] = USERS_CITY_ERROR_EMPTY;
     }
     if (!empty($_POST['phoneNumber'])) {
-        if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) { //creer la regex phoneNumber
-            $user->phoneNumber = clean($_POST['phoneNumber']);
+        if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) {
+            $user->phoneNumber = strip_tags($_POST['phoneNumber']);
             if ($user->checkIfExistsByPhoneNumber() == 1) {
                 $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
             }
