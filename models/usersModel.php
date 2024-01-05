@@ -17,9 +17,23 @@ class Users
     {
         try {
             $this->pdo = new PDO('mysql:host=localhost;dbname=projet_tp;charset=utf8', 'maT512Mo', '6qJq2Sqb=28C[');
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             header('Location: /index.php');
         }
+    }
+
+    /**
+     * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
+     * @param string $phoneNumber le numéro de téléphone
+     * @return bool
+     */
+    public function checkIfExistsByPhoneNumber()
+    {
+        $sql = 'SELECT COUNT(`phoneNumber`) FROM `HuBX02_users` WHERE `phoneNumber` = :phoneNumber';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_COLUMN);
     }
 
     /**
@@ -27,23 +41,11 @@ class Users
      * @param string $email L'adresse email
      * @return bool
      */
-    public function checkIfExistsByEmail() {
+    public function checkIfExistsByEmail()
+    {
         $sql = 'SELECT COUNT(`email`) FROM `HuBX02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
-        $req->execute();
-        return $req->fetch(PDO::FETCH_COLUMN);
-    }
-
-        /**
-     * Vérifie si un utilisateur existe dans la base de données avec le nom d'utilisateur
-     * @param string $lastname Le nom d'utilisateur
-     * @return bool
-     */
-    public function checkIfExistsByLastname() {
-        $sql = 'SELECT COUNT(`lastname`) FROM `HuBX02_users` WHERE `lastname` = :lastname';
-        $req = $this->pdo->prepare($sql);
-        $req->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
@@ -55,13 +57,14 @@ class Users
      * @param string $address L'adresse de l'utilisateur
      * @param int $zipCode Le code postal de l'utilisateur
      * @param string $city La ville de l'utilisateur
-     * @param string $phoneNumber Le numéro de l'utilisateur
+     * @param string $phoneNumber Le numéro de téléphone de l'utilisateur
      * @param string $email L'adresse email de l'utilisateur
      * @param string $password Le mot de passe hashé de l'utilisateur
      * @param string $id_usersroles Role de l'utilisateur
      * @return bool
      */
-    public function createUser() {
+    public function createUser()
+    {
         $sql = 'INSERT INTO `HuBX02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
         VALUES (:lastname,:firstname,:address,:zipCode,:city,:phoneNumber,:email,:password,:id_usersroles,)';
         $req = $this->pdo->prepare($sql);
@@ -77,19 +80,19 @@ class Users
         return $req->execute();
     }
 
-    public function delete() {
-
+    public function delete()
+    {
     }
 
-    public function getById() {
-
+    public function getById()
+    {
     }
 
-    public function getList() {
-
+    public function getList()
+    {
     }
 
-    public function update() {
-
+    public function update()
+    {
     }
 }

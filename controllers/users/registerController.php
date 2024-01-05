@@ -6,16 +6,12 @@ require_once '../functions.php';
 session_start();
 
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new Users();
 
     if (!empty($_POST['lastname'])) {
         if (preg_match($regex['name'], $_POST['lastname'])) {
             $user->lastname = clean($_POST['lastname']);
-            if ($user->checkIfExistsByLastname() == 1) {
-                $errors['lastname'] = USERS_LASTNAME_ERROR_EXISTS;
-            }
         } else {
             $errors['lastname'] = USERS_LASTNAME_ERROR_INVALID;
         }
@@ -33,8 +29,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['firsname'] = USERS_FIRSTNAME_ERROR_EMPTY;
     }
 
+    if (!empty($_POST['address'])) {
+        if (preg_match($regex['address'], $_POST['address'])) { //creer la regex address
+            $user->address = clean($_POST['address']);
+        } else {
+            $errors['address'] = USERS_ADDRESS_ERROR_INVALID;
+        }
+    } else {
+        $errors['address'] = USERS_ADDRESS_ERROR_EMPTY;
+    }
 
-    //rajout  address zipCode city
+    if (!empty($_POST['zipCode'])) {
+        if (preg_match($regex['zipCode'], $_POST['zipCode'])) { //creer la regex zipCode
+            $user->zipCode = strip_tags($_POST['zipCode']);
+        } else {
+            $errors['zipCode'] = USERS_ZIPCODE_ERROR_INVALID;
+        }
+    } else {
+        $errors['zipCode'] = USERS_ZIPCODE_ERROR_EMPTY;
+    }
+
+    if (!empty($_POST['city'])) {
+        if (preg_match($regex['city'], $_POST['city'])) { //creer la regex city
+            $user->city = clean($_POST['city']);
+        } else {
+            $errors['city'] = USERS_CITY_ERROR_INVALID;
+        }
+    } else {
+        $errors['city'] = USERS_CITY_ERROR_EMPTY;
+    }
+    if (!empty($_POST['phoneNumber'])) {
+        if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) { //creer la regex phoneNumber
+            $user->phoneNumber = clean($_POST['phoneNumber']);
+            if ($user->checkIfExistsByPhoneNumber() == 1) {
+                $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
+            }
+        } else {
+            $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_INVALID;
+        }
+    } else {
+        $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EMPTY;
+    }
 
     if (!empty($_POST['email'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
