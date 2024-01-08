@@ -102,20 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
     }
 
-    /*    if (!empty($_POST['birthdate'])) {
-        if (preg_match($regex['date'], $_POST['birthdate'])) {
-            if (checkDateValidity($_POST['birthdate'])) {
-                $user->birthdate = $_POST['birthdate'];
-            } else {
-                $errors['birthdate'] = USERS_BIRTHDATE_ERROR_INVALID;
-            }
-        } else {
-            $errors['birthdate'] = USERS_BIRTHDATE_ERROR_INVALID;
-        }
-    } else {
-        $errors['birthdate'] = USERS_BIRTHDATE_ERROR_EMPTY;
-    }
-    */
     if (empty($errors)) {
         if ($user->createUser()) {
             $success = 'L\'utilisateur a bien été créé';

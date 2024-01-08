@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteRule ^inscription$ /controllers/users/registerController.php
-RewriteRule ^connexion$ /.php
+RewriteRule ^connexion$ /controllers/users/loginController.php
 RewriteRule ^dashboard$ /.php
 RewriteRule ^mon-compte$ /.php
 RewriteRule ^deconnexion$ /.php

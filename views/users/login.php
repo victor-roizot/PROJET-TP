@@ -1,4 +1,5 @@
 <section>
+    <h1>Connexion</h1>
     <form action="#" method="POST">
         <label for="email">Adresse mail</label>
         <input type="email" name="email" id="email" placeholder="jean.dupont@mail.fr" value="<?= @$_COOKIE['email'] ?>">

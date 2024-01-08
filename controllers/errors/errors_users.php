@@ -39,7 +39,3 @@ define('USERS_PASSWORD_ERROR_INVALID', 'Le mot de passe est invalide. Il doit co
 define('USERS_PASSWORD_CONFIRM_ERROR_INVALID', 'La confirmation du mot de passe est invalide. Les mots de passe ne correspondent pas');
 define('USERS_PASSWORD_CONFIRM_ERROR_EMPTY', 'La confirmation du mot de passe est requise');
 
-/*
-define('USERS_BIRTHDATE_ERROR_EMPTY', 'La date de naissance est requise');
-define('USERS_BIRTHDATE_ERROR_INVALID', 'La date de naissance est invalide. Elle doit être au format YYYY-MM-DD');
-*/
