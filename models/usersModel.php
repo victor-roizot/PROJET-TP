@@ -80,6 +80,22 @@ class Users
         return $req->execute();
     }
 
+    public function getPassword() {
+        $sql = 'SELECT `password` FROM `HuBX02_users` WHERE `email` = :email';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_COLUMN);
+    }
+
+    public function getInfosByEmail() {
+        $sql = 'SELECT `id`, `username`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = :email';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function delete()
     {
     }
