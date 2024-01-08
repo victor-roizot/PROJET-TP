@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if (!empty($_POST['phoneNumber'])) {
         if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) {
-            $user->phoneNumber = strip_tags($_POST['phoneNumber']);
+            $user->phoneNumber = clean($_POST['phoneNumber']);
             if ($user->checkIfExistsByPhoneNumber() == 1) {
                 $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
             }
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($errors)) {
-        if ($user->createUser()) {
+        if ($user->create()) {
             $success = 'L\'utilisateur a bien été créé';
         }
     }
