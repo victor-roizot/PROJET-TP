@@ -5,11 +5,12 @@ require_once '../errors/errors_users.php';
 session_start();
 
 // Je vérifie si la personne est connectée. Si oui, je la redirige vers la page mon-compte
+/*  A REMETTRE AVEC VISUALISATION DU ACCOUNT
 if (isset($_SESSION['user'])) {
     header('Location: /mon-compte');
     exit;
 }
-
+*/ 
 // Je crée mon tableau d'erreurs
 $errors = [];
 

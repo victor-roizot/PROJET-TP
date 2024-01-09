@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['firstname'])) {
         if (preg_match($regex['name'], $_POST['firstname'])) {
-            $user->firstname = clean($_POST['firsname']);
+            $user->firstname = clean($_POST['firstname']);
         } else {
             $errors['firstname'] = USERS_FIRSTNAME_ERROR_INVALID;
         }

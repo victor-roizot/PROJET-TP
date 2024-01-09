@@ -44,6 +44,15 @@ CREATE TABLE HuBX02_usersroles(
 	,CONSTRAINT usersroles_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
+/*
+rajout de la population A SUPPRIMER
+USE `projettp`;
+INSERT INTO `hubx02_usersroles` (`id`, `name`)VALUES 
+(1,'Utilisateur'),
+(125,'Modérateur'),
+(255,'Administrateur');
+*/
+
 
 #------------------------------------------------------------
 # Table: HuBX02_users

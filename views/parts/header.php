@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP</title>
-    <link rel="shortcut icon" href="../../">
+    <link rel="shortcut icon" href="../../assets/img/lambda half life.jpg">
     <link rel="stylesheet" href="../../assets/css/style.min.css">
 </head>
 

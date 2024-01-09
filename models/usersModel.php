@@ -60,13 +60,12 @@ class Users
      * @param string $phoneNumber Le numéro de téléphone de l'utilisateur
      * @param string $email L'adresse email de l'utilisateur
      * @param string $password Le mot de passe hashé de l'utilisateur
-     * @param string $id_usersroles Role de l'utilisateur
      * @return bool
      */
     public function create()
     {
         $sql = 'INSERT INTO `HuBX02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
-        VALUES (:lastname,:firstname,:address,:zipCode,:city,:phoneNumber,:email,:password,:id_usersroles,)';
+        VALUES (:lastname,:firstname,:address,:zipCode,:city,:phoneNumber,:email,:password,1)';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $req->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
@@ -76,9 +75,12 @@ class Users
         $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->bindValue(':password', $this->password, PDO::PARAM_STR);
-        $req->bindValue(':id_usersroles', $this->id_usersroles, PDO::PARAM_INT);
         return $req->execute();
     }
+    /** requete test dans PHPMySQL
+     * INSERT INTO `HuBX02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
+     *VALUES ('lastname','firstname','50 rue de paris',75000,'PARIS','06 00 00 00 00','test@gmail.com','Pizza123!', 1);
+     */
 
     public function getPassword() {
         $sql = 'SELECT `password` FROM `HuBX02_users` WHERE `email` = :email';
@@ -89,12 +91,15 @@ class Users
     }
 
     public function getInfosByEmail() {
-        $sql = 'SELECT `id`, `username`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = :email';
+        $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_ASSOC);
     }
+        /** requete test dans PHPMySQL
+     * SELECT `id`, `lastname`, `firstname`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = 'jean.dupont@gmail.com';
+     */
 
     public function delete()
     {
