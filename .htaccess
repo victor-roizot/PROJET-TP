@@ -1,7 +1,8 @@
 RewriteEngine On
+RewriteRule ^accueil$ /index.php
 RewriteRule ^inscription$ /controllers/users/registerController.php
 RewriteRule ^connexion$ /controllers/users/loginController.php
 RewriteRule ^mon-compte$ /controllers/users/accountController.php
 RewriteRule ^deconnexion$ /controllers/users/logoutController.php
-RewriteRule ^dashboard$ /controllers/adminController.php
+RewriteRule ^dashboard$ /controllers/users/adminController.php
 RewriteRule ^contact$ /.php

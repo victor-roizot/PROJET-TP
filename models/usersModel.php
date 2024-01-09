@@ -18,7 +18,7 @@ class Users
         try {
             $this->pdo = new PDO('mysql:host=localhost;dbname=projettp;charset=utf8', 'maT512Mo', '6qJq2Sqb=28C[');
         } catch (PDOException $e) {
-            header('Location: /index.php');
+            header('Location: /accueil');
         }
     }
 

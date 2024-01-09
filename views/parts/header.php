@@ -12,7 +12,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/">Accueil</a></li>
+            <li><a href="/accueil">Accueil</a></li>
             <li><a href="/connexion">Connexion</a></li>
             <li><a href="/inscription">inscription</a></li>
             <li><a href="/">Déconnexion</a></li>

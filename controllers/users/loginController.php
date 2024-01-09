@@ -65,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              */
             $_SESSION['user'] = $user->getInfosByEmail();
             var_dump($_SESSION['user']);
-            // header('Location: /mon-compte');
-            // exit;
+            header('Location: /mon-compte');
+            exit;
         }
     }
 }
