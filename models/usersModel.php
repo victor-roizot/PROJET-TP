@@ -77,12 +77,13 @@ class Users
         $req->bindValue(':password', $this->password, PDO::PARAM_STR);
         return $req->execute();
     }
-    /** requete test dans PHPMySQL
+    /** requete test dans PHP MySQL
      * INSERT INTO `HuBX02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
      *VALUES ('lastname','firstname','50 rue de paris',75000,'PARIS','06 00 00 00 00','test@gmail.com','Pizza123!', 1);
      */
 
-    public function getPassword() {
+    public function getPassword()
+    {
         $sql = 'SELECT `password` FROM `HuBX02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
@@ -90,14 +91,15 @@ class Users
         return $req->fetch(PDO::FETCH_COLUMN);
     }
 
-    public function getInfosByEmail() {
+    public function getInfosByEmail()
+    {
         $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_ASSOC);
     }
-        /** requete test dans PHPMySQL
+    /** requete test dans PHP MySQL
      * SELECT `id`, `lastname`, `firstname`, `id_usersroles` FROM `HuBX02_users` WHERE `email` = 'jean.dupont@gmail.com';
      */
 
@@ -107,7 +109,21 @@ class Users
 
     public function getById()
     {
+        $sql = 'SELECT `lastname`, `firstname`, `email`, `name` AS `roleName`
+            FROM `HuBX02_users`
+            INNER JOIN `hubx02_usersroles` ON `id_usersroles` = `hubx02_usersroles`.`id`
+            WHERE`HuBX02_users`.`id` = :id';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_OBJ);
     }
+    /** requete test dans PHP MySQL
+     * SELECT `lastname`, `firstname`, `email`, `name` AS `roleName`
+     *  FROM `HuBX02_users`
+     * INNER JOIN `hubx02_usersroles` ON `id_usersroles` = `hubx02_usersroles`.`id`
+     * WHERE`HuBX02_users`.`id` = 1;
+     */
 
     public function getList()
     {
