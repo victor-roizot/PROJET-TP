@@ -18,7 +18,7 @@
                 <li><a href="/inscription">inscription</a></li>
                 <li><a href="/connexion">Connexion</a></li>
             <?php } else { ?>
-                <li><a href="/mon-compte"><?= $_SESSION['user']['lastname'] ?></a></li>
+                <li><a href="/mon-compte"><?= $_SESSION['user']['lastname'] // .' '. $_SESSION['user']['firstname'] ?></a></li>
                 <?php if ($_SESSION['user']['id_usersroles'] == 255) { ?>
                     <li><a href="/dashboard">Admin</a></li>
                 <?php } ?>
