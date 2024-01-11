@@ -5,12 +5,12 @@ require_once '../errors/errors_users.php';
 session_start();
 
 // Je vérifie si la personne est connectée. Si oui, je la redirige vers la page mon-compte
-/*  A REMETTRE AVEC VISUALISATION DU ACCOUNT
+
 if (isset($_SESSION['user'])) {
     header('Location: /mon-compte');
     exit;
 }
-*/ 
+
 // Je crée mon tableau d'erreurs
 $errors = [];
 
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              * Je peux également utiliser la session pour stocker des informations qui ne sont pas propres à l'utilisateur (par exemple, le panier d'un utilisateur non connecté).
              */
             $_SESSION['user'] = $user->getInfosByEmail();
-            var_dump($_SESSION['user']);
+            //var_dump($_SESSION['user']);
             header('Location: /mon-compte');
             exit;
         }
