@@ -1,21 +1,20 @@
 body {
     min-height: 100vh;
     box-sizing: border-box;
-    background-image: url(https://www.photo-paysage.com/albums/userpics/10001/thumb_Coucher_de_soleil-Cotes-d-Armor.jpg);
-    background-repeat: no-repeat;
+    background-image: url(/assets/img/lain\ os.png);
     background-size: cover;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     color: aliceblue;
-
 }
 
 nav {
-background-color: antiquewhite;
     display: flex;
     justify-content: flex-end;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     padding: 1rem;
 }
 
@@ -27,19 +26,33 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 0.5rem 3rem;
+    margin: 0.5rem 2rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: aliceblue;
 }
 
 body main {
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+}
+
+body main section {
+    width: 80%;
+    background-color: darkblue;
+    padding: 1rem;
+}
+
+body footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    margin-top: auto;
 }

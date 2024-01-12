@@ -1,7 +1,7 @@
 </main>
 <footer>
 
-    <p>Mon footer</p>
+    <p>Copyright 2024</p>
 </footer>
 <script src="../../assets/js/script.js"></script>
 </body>
