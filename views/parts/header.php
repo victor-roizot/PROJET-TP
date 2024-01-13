@@ -15,8 +15,11 @@
 
 <body>
     <nav>
+        <div>
+            <a href="#"><img id="logo" src="../../assets/img/lambda half life.jpg" alt="Logo"></a>
+            <h1 id="name"> Blackwook</h1>
+        </div>
         <ul>
-
             <li><a href="/">Accueil</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
                 <li><a href="/inscription">inscription</a></li>

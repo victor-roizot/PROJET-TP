@@ -1,7 +1,7 @@
 </main>
 <footer>
 
-    <p>Copyright 2024</p>
+    <h3>Blackwood - Copyright 2024</h3>
 </footer>
 <script src="../../assets/js/script.js"></script>
 </body>
