@@ -119,7 +119,7 @@ class Users
      * WHERE`hubx02_users`.`id` = 1;
      */
 
-    
+
     /**
      * Récupère les informations d'un utilisateur dans la base de données avec son adresse email
      * @param string $email L'adresse email de l'utilisateur qui nous permettra de récupérer ses informations
@@ -137,7 +137,7 @@ class Users
      * SELECT `id`, `lastname`, `firstname`, `id_usersroles` FROM `hubx02_users` WHERE `email` = 'jean.dupont@gmail.com';
      */
 
-    
+
     /**
      * Récupère le mot de passe hashé d'un utilisateur dans la base de données. 
      * On l'utilisera pour vérifier avec la fonction password_verify que le mot de passe saisi par l'utilisateur correspond bien à celui stocké dans la base de données.
@@ -153,7 +153,7 @@ class Users
         return $req->fetch(PDO::FETCH_COLUMN);
     }
 
-        /**
+    /**
      * Met à jour le nom de l'utilisateur, l'adresse email et la date de naissance
      * @param string $username Le nom de l'utilisateur
      * @param string $email L'adresse email de l'utilisateur
@@ -163,26 +163,34 @@ class Users
      */
     public function updateAdress()
     {
-        $sql = 'UPDATE `hubx02_users` SET `lastname` = :lastname, `email` = :email, `birthdate` = :birthdate WHERE `id`= :id';
+        $sql = 'UPDATE `hubx02_users` SET `address` = :address, `zipCode` = :zipCode, `city` = :city WHERE `id`= :id';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
-        $req->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $req->bindValue(':address', $this->address, PDO::PARAM_STR);
         $req->bindValue(':zipCode', $this->zipCode, PDO::PARAM_INT);
         $req->bindValue(':city', $this->city, PDO::PARAM_STR);
-        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
-        $req->bindValue(':email', $this->email, PDO::PARAM_STR);
-        $req->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
 
+    public function updatephoneNumber()
     {
-        $sql = 'INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
-        VALUES (:lastname,:firstname,:address,:zipCode,:city,:phoneNumber,:email,:password,1)';
-        }
+        $sql = 'UPDATE `hubx02_users` SET `phoneNumber` = :phoneNumber WHERE `id`= :id';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $req->execute();
+    }
 
+    public function updateEmail()
+    {
+        $sql = 'UPDATE `hubx02_users` SET `email` = :email WHERE `id`= :id';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $req->execute();
+    }
 
-        /**
+    /**
      * Met à jour le mot de passe de l'utilisateur
      * @param string $password Le mot de passe de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
