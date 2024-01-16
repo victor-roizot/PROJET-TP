@@ -94,6 +94,9 @@ class Users
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
+    /**  requete test dans PHP MySQL
+     * DELETE FROM `hubx02_users` WHERE `id` = 3;
+     */
 
 
     /**
@@ -171,6 +174,9 @@ class Users
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
+    /** requete test dans PHP MySQL
+     * UPDATE `hubx02_users` SET `address` = '10 rue de paris', `zipCode` = 75001, `city` = 'PARISS' WHERE `id`= 4;
+     */
 
     public function updatephoneNumber()
     {
@@ -180,6 +186,9 @@ class Users
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
+    /** requete test dans PHP MySQL
+     * UPDATE `hubx02_users` SET `phoneNumber` = '06 00 00 00 04' WHERE `id`= 4;
+     */
 
     public function updateEmail()
     {
@@ -189,6 +198,9 @@ class Users
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
+    /** requete test dans PHP MySQL
+     * UPDATE `hubx02_users` SET `email` = 'testquatre@gmail.com' WHERE `id`= 4;
+     */
 
     /**
      * Met à jour le mot de passe de l'utilisateur
@@ -204,4 +216,7 @@ class Users
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $req->execute();
     }
+    /**
+     * UPDATE `hubx02_users` SET `password` = 'Pizza123!!' WHERE `id`= 4;
+     */
 }
