@@ -9,7 +9,8 @@ body {
     padding: 0;
     color: aliceblue;
 }
-/* Navbar */
+
+/* NAVBAR */
 nav {
     display: flex;
     background-color: transparent;
@@ -18,19 +19,19 @@ nav {
 }
 
 nav div {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin: 0;
-padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-nav div a{
+nav div a {
     width: 15%;
     padding: 1rem;
 }
 
-#logo{
+#logo {
     width: 100%;
 }
 
@@ -62,13 +63,42 @@ nav ul li a::after {
     transition: 0.5s;
 }
 
-nav ul li a:hover:after
-{
+nav ul li a:hover:after {
     width: 100%;
 }
 
+/* FORMULAIRE */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
 
-/* body */
+form label {
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+²
+form input:not([type=submit]) {
+    border: none;
+    border-bottom: 3px solid blueviolet;
+    margin: 0.5rem 0;
+    padding: 0.4rem;
+}
+
+form input:focus {
+    outline: none;
+    border-bottom: 3px solid #A53860;
+}
+
+form input[type=checkbox] {
+    margin: 0;
+    margin-right: 1rem;
+    padding: 0;
+}
+
+/* BODY */
 body main {
     display: flex;
     flex-direction: column;
@@ -78,10 +108,11 @@ body main {
 
 body main section {
     width: 80%;
-    background-color: darkblue;
+    background-color: green;
     padding: 1rem;
 }
-/* footer */
+
+/* FOOTER */
 body footer {
     display: flex;
     justify-content: center;
