@@ -1,6 +1,6 @@
 <?php
 require_once '../../models/usersModel.php';
-require_once '../errors/errors_users.php';
+require_once '../errors/regex-errors_users.php';
 
 session_start();
 
