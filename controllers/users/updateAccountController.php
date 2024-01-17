@@ -5,58 +5,59 @@ require_once '../functions.php';
 
 session_start();
 
-if(!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) {
     header('Location: /connexion');
     exit;
 }
 
 //modif infos
-if(isset($_POST['updateInfos'])) {
+if (isset($_POST['updateAdress'])) {
 
-    if (!empty($_POST['username'])) {
-        if (preg_match($regex['name'], $_POST['username'])) {
-            $user->username = clean($_POST['username']);
-            if ($user->checkIfExistsByUsername() == 1 && $user->username != $_SESSION['user']['username']) {
-                $errors['username'] = USERS_USERNAME_ERROR_EXISTS;
+    if (!empty($_POST['address'])) {
+        if (preg_match($regex['address'], $_POST['address'])) {
+            $user->address = clean($_POST['address']);
+            if ($user->checkIfExistsByUserAddress() == 1 && $user->address != $_SESSION['user']['address']) {
+                $errors['address'] = USERS_ADDRESS_ERROR_EXISTS;
             }
         } else {
-            $errors['username'] = USERS_USERNAME_ERROR_INVALID;
+            $errors['address'] = USERS_ADDRESS_ERROR_INVALID;
         }
     } else {
-        $errors['username'] = USERS_USERNAME_ERROR_EMPTY;
+        $errors['address'] = USERS_ADDRESS_ERROR_EMPTY;
     }
 
-    if (!empty($_POST['email'])) {
-        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $user->email = clean($_POST['email']);
-            if ($user->checkIfExistsByEmail() == 1 && $user->email != $_SESSION['user']['email']) {
-                $errors['email'] = USERS_EMAIL_ERROR_EXISTS;
+    if (!empty($_POST['zipCode'])) {
+        if (preg_match($regex['zipCode'], $_POST['zipCode'])) {
+            $user->zipCode = strip_tags($_POST['zipCode']);
+            if ($user->checkIfExistsByUserZipCode() == 1 && $user->zipCode != $_SESSION['user']['zipCode']) {
+                $errors['zipCode'] = USERS_ZIPCODE_ERROR_EXISTS;
             }
         } else {
-            $errors['email'] = USERS_EMAIL_ERROR_INVALID;
+            $errors['zipCode'] = USERS_ZIPCODE_ERROR_INVALID;
         }
     } else {
-        $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
+        $errors['zipCode'] = USERS_ZIPCODE_ERROR_EMPTY;
     }
 
-    if (!empty($_POST['birthdate'])) {
-        if (preg_match($regex['date'], $_POST['birthdate'])) {
-            if (checkDateValidity($_POST['birthdate'])) {
-                $user->birthdate = $_POST['birthdate'];
-            } else {
-                $errors['birthdate'] = USERS_BIRTHDATE_ERROR_INVALID;
+    if (!empty($_POST['city'])) {
+        if (preg_match($regex['city'], $_POST['city'])) {
+            $user->city = clean($_POST['city']);
+            if ($user->checkIfExistsByUserCity() == 1 && 
+            $user->city != $_SESSION['user']['city']) {
+                $errors['city'] = USERS_CITY_ERROR_EXISTS;
             }
         } else {
-            $errors['birthdate'] = USERS_BIRTHDATE_ERROR_INVALID;
+            $errors['city'] = USERS_CITY_ERROR_INVALID;
         }
     } else {
-        $errors['birthdate'] = USERS_BIRTHDATE_ERROR_EMPTY;
+        $errors['city'] = USERS_CITY_ERROR_EMPTY;
     }
-    
-    if(empty($errors)) {
-        if($user->update()){
-            $_SESSION['user']['username'] = $user->username;
-            $_SESSION['user']['email'] = $user->email;
+
+    if (empty($errors)) {
+        if ($user->updateAdress()) {
+            $_SESSION['user']['address'] = $user->address;
+            $_SESSION['user']['zipCode'] = $user->zipCode;
+            $_SESSION['user']['city'] = $user->city;
             $success = USERS_UPDATE_SUCCESS;
         } else {
             $errors['update'] = USERS_UPDATE_ERROR;
@@ -66,9 +67,56 @@ if(isset($_POST['updateInfos'])) {
 
 
 
+// modif téléphone
+if (!empty($_POST['email'])) {
+    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $user->email = clean($_POST['email']);
+        if ($user->checkIfExistsByEmail() == 1 && $user->email != $_SESSION['user']['email']) {
+            $errors['email'] = USERS_EMAIL_ERROR_EXISTS;
+        }
+    } else {
+        $errors['email'] = USERS_EMAIL_ERROR_INVALID;
+    }
+} else {
+    $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
+}
+
+if (!empty($_POST['phoneNumber'])) {
+    if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) {
+        $user->phoneNumber = clean($_POST['phoneNumber']);
+        if ($user->checkIfExistsByPhoneNumber() == 1) {
+            $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
+        }
+    } else {
+        $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_INVALID;
+    }
+} else {
+    $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EMPTY;
+}
+
+
+
+
+// modif email
+if (!empty($_POST['email'])) {
+    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $user->email = clean($_POST['email']);
+        if ($user->checkIfExistsByEmail() == 1 && $user->email != $_SESSION['user']['email']) {
+            $errors['email'] = USERS_EMAIL_ERROR_EXISTS;
+        }
+    } else {
+        $errors['email'] = USERS_EMAIL_ERROR_INVALID;
+    }
+} else {
+    $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
+}
+
+
+
+
 // modif mot de  passe
-if(isset($_POST['updatePassword'])) {
-    
+if (isset($_POST['updatePassword'])) {
+
     if (!empty($_POST['password'])) {
         if (preg_match($regex['password'], $_POST['password'])) {
             if (!empty($_POST['password_confirm'])) {
@@ -87,8 +135,8 @@ if(isset($_POST['updatePassword'])) {
         $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
     }
 
-    if(empty($errors)) {
-        if($user->updatePassword()){
+    if (empty($errors)) {
+        if ($user->updatePassword()) {
             $success = USERS_PASSWORD_UPDATE_SUCCESS;
         } else {
             $errors['update'] = USERS_PASSWORD_UPDATE_ERROR;
@@ -99,8 +147,8 @@ if(isset($_POST['updatePassword'])) {
 
 
 
-if(isset($_POST['deleteAccount'])) {
-    if($user->delete()) {
+if (isset($_POST['deleteAccount'])) {
+    if ($user->delete()) {
         unset($_SESSION);
         session_destroy();
         header('Location: /compte-supprime');
