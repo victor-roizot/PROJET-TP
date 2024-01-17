@@ -25,29 +25,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user->email = $_POST['email'];
 
             if (!$user->checkIfExistsByEmail()) {
-                $errors['email'] = $errors['password'] = 'Votre adresse mail ou votre mot de passe est incorrect';
+                $errors['email'] = $errors['password'] = USERS_LOGIN_ERROR;
             } else {
                 $user->password = $user->getPassword();
             }
         } else {
             // Sinon, je remplis mon tableau d'erreurs
-            $errors['email'] = 'Veuillez renseigner une adresse mail valide. Elle ne doit contenir que des caractères alphanumériques, des tirets et des points';
+            $errors['email'] = USERS_EMAIL_ERROR_INVALID;
         }
     } else {
-        $errors['email'] = 'Veuillez renseigner votre adresse mail';
+        $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
     }
 
     if (!empty($_POST['password'])) {
         $password = $_POST['password'];
     } else {
-        $errors['password'] = 'Veuillez renseigner votre mot de passe';
+        $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
     }
 
     // Si je n'ai aucune erreur
     if (empty($errors)) {
         // Je vérifie que l'email et le mot de passe correspondent à ceux stockés dans le tableau $credentials (plus tard, ce sera une requête SQL). S'il y a une erreur, je ne précise pas si c'est l'email ou le mot de passe qui est incorrect pour ne pas donner d'informations à un éventuel pirate.
         if (!password_verify($password, $user->password)) {
-            $errors['email'] = $errors['password'] = 'Votre adresse mail ou votre mot de passe est incorrect';
+            $errors['email'] = $errors['password'] = USERS_LOGIN_ERROR;
         } else {
             // Si ma case "Se souvenir de moi" est cochée, je crée un cookie qui contient l'email et le mot de passe de l'utilisateur. Le cookie sera valable 60 secondes et accessible depuis tout le site.
             if (isset($_POST['remember'])) {

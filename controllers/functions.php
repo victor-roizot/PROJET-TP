@@ -1,4 +1,4 @@
-<?php 
+<?php
 //FONCTIONS
 /**
  * Nettoie la chaîne de caractères
@@ -8,7 +8,7 @@
 function clean($string)
 {
     $string = trim($string);
-     //Supprime les espaces ou d'autres caractères en début et fin de chaîne
+    //Supprime les espaces ou d'autres caractères en début et fin de chaîne
     $string = strip_tags($string);
     return $string;
 }
@@ -18,7 +18,10 @@ function clean($string)
  * @param string $date - La date à vérifier (au format mysql)
  * @return bool - true si la date est valide, false sinon
  */
-function checkDateValidity($date) {
-    $dateArray = explode('-', $date);
-    return checkdate($dateArray[1], $dateArray[2], $dateArray[0]);
-}
+
+/**
+ * function checkDateValidity($date) {
+ * $dateArray = explode('-', $date);
+ * return checkdate($dateArray[1], $dateArray[2], $dateArray[0]);
+ * }
+ */
