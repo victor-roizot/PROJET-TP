@@ -1,8 +1,18 @@
 RewriteEngine On
-RewriteRule ^accueil$ /index.php
+
+# USERS
 RewriteRule ^inscription$ /controllers/users/registerController.php
 RewriteRule ^connexion$ /controllers/users/loginController.php
 RewriteRule ^mon-compte$ /controllers/users/accountController.php
 RewriteRule ^deconnexion$ /controllers/users/logoutController.php
+RewriteRule ^modifier-mon-compte$ /controllers/users/updateAccountController.php
+RewriteRule ^compte-supprime$ index.php?deleteAccount=true
+
+# ADMIN
 RewriteRule ^dashboard$ /controllers/adminController.php
+
+#ARTICLES
+
+# PAGES
+RewriteRule ^accueil$ /index.php
 RewriteRule ^contact$ /.php
