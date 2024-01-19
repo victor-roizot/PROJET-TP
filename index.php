@@ -2,6 +2,7 @@
 session_start();
 require_once 'views/parts/header.php'; 
 ?>
+
 <section class="pageIntroduction">
     <h1>La Manu Post</h1>
     <p class="subTitle">Démo inscription - connexion - PDO</p>

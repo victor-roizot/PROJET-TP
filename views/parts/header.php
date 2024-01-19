@@ -34,4 +34,4 @@
             <?php } ?>
         </ul>
     </nav>
-    <main>
+    <main class="container">
