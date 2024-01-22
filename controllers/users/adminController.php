@@ -14,9 +14,9 @@ if($_SESSION['user']['id_usersroles'] != 255){
     exit;
 }
 
-require_once '../views/parts/header.php';
-require_once '../views/admin.php';
-require_once '../views/parts/footer.php';
+require_once '../../views/parts/header.php';
+require_once '../../views/users/admin.php';
+require_once '../../views/parts/footer.php';
 
 
 

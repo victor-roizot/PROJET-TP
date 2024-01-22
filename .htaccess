@@ -9,7 +9,7 @@ RewriteRule ^modifier-mon-compte$ /controllers/users/updateAccountController.php
 RewriteRule ^compte-supprime$ index.php?deleteAccount=true
 
 # ADMIN
-RewriteRule ^dashboard$ /controllers/adminController.php
+RewriteRule ^dashboard$ /controllers/users/adminController.php
 
 #ARTICLES
 
