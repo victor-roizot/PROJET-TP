@@ -1,7 +1,6 @@
 <?php
 class Users
 {
-    private $pdo;
     public int $id;
     public string $lastname;
     public string $firstname;
@@ -12,11 +11,12 @@ class Users
     public string $email;
     public string $password;
     public int $id_usersRoles;
+    private $pdo;
 
     public function __construct()
     {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=projettp;charset=utf8', 'maT512Mo', '6qJq2Sqb=28C[');
+            $this->pdo = new PDO('mysql:host=localhost;dbname=projet_tp;charset=utf8', 'Neo512Mo', '26qJq2Sqb=28C[');
         } catch (PDOException $e) {
             header('Location: /accueil');
         }
