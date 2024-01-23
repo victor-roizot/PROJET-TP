@@ -1,16 +1,23 @@
 <?php
+// Requires
 require_once '../../models/usersModel.php';
-require_once '../errors/regex-errors_users.php';
-require_once '../functions.php';
+require_once '../../utils/messages.php';
+require_once '../../utils/regex.php';
+require_once '../../utils/functions.php';
 
+// Démarrage de la session
 session_start();
 
-if (!isset($_SESSION['user'])) {
+// Vérification si l'utilisateur est connecté
+if(!isset($_SESSION['user'])) {
     header('Location: /connexion');
     exit;
 }
 
-//modif infos
+$user = new Users;
+$user->id = $_SESSION['user']['id'];
+
+// modif infos
 if (isset($_POST['updateAdress'])) {
 
     if (!empty($_POST['address'])) {

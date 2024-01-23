@@ -8,9 +8,15 @@
     <link rel="shortcut icon" href="../../assets/img/lambda half life.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<link rel="stylesheet" href="../../assets/css/style.min.css">-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#content'
+        });
+    </script>
 </head>
 
 <body>
@@ -26,7 +32,7 @@
                 <li><a class="lien" href="/connexion">Connexion</a></li>
             <?php } else { ?>
                 <li><a class="lien" href="/mon-compte"><?= $_SESSION['user']['lastname']
-                                            ?></a></li>
+                                                        ?></a></li>
                 <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
                     <li><a class="lien" href="/dashboard">Admin</a></li>
                 <?php } ?>

@@ -1,7 +1,11 @@
 <?php
+// Requires
 require_once '../../models/usersModel.php';
-require_once '../errors/regex-errors_users.php';
+require_once '../../utils/messages.php';
+require_once '../../utils/regex.php';
+require_once '../../utils/functions.php';
 
+// Démarrage de la session
 session_start();
 
 // Je vérifie si la personne est connectée. Si oui, je la redirige vers la page mon-compte
@@ -64,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              * Je peux également utiliser la session pour stocker des informations qui ne sont pas propres à l'utilisateur (par exemple, le panier d'un utilisateur non connecté).
              */
             $_SESSION['user'] = $user->getInfosByEmail();
-            //var_dump($_SESSION['user']);
             header('Location: /mon-compte');
             exit;
         }

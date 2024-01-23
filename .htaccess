@@ -12,6 +12,11 @@ RewriteRule ^compte-supprime$ index.php?deleteAccount=true
 RewriteRule ^dashboard$ /controllers/users/adminController.php
 
 #ARTICLES
+RewriteRule ^ajout-article$ /controllers/articles/addArticleController.php
+RewriteRule ^blog$ /controllers/articles/articlesListController.php
+
+#ERRORS
+RewriteRule ^erreur-connexion$ /controllers/errorsController.php
 
 # PAGES
 RewriteRule ^accueil$ /index.php
