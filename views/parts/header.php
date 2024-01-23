@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP</title>
+    <title>Blackwook</title>
     <link rel="shortcut icon" href="../../assets/img/lambda half life.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
             <?php } else { ?>
                 <li><a class="lien" href="/mon-compte"><?= $_SESSION['user']['lastname']
                                             ?></a></li>
-                <?php if ($_SESSION['user']['id_usersroles'] == 255) { ?>
+                <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
                     <li><a class="lien" href="/dashboard">Admin</a></li>
                 <?php } ?>
                 <li><a class="lien" href="/deconnexion">Déconnexion</a></li>

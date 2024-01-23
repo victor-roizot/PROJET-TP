@@ -9,7 +9,7 @@ if(empty($_SESSION['user'])){
  * J'utilise la variable $_SESSION['user']['role'] qui a été créée lors de la connexion (voir loginController.php).
  * S'il n'a pas accès à cette page, je renvoie l'utilisateur vers sa page de profil.
  */
-if($_SESSION['user']['id_usersroles'] != 255){
+if($_SESSION['user']['id_usersRoles'] != 255){
     header('Location: /mon-compte');
     exit;
 }

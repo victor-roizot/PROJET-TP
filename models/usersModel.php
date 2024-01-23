@@ -11,7 +11,7 @@ class Users
     public string $phoneNumber;
     public string $email;
     public string $password;
-    public int $id_usersroles;
+    public int $id_usersRoles;
 
     public function __construct()
     {
@@ -64,7 +64,7 @@ class Users
      */
     public function create()
     {
-        $sql = 'INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
+        $sql = 'INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersRoles`) 
         VALUES (:lastname,:firstname,:address,:zipCode,:city,:phoneNumber,:email,:password,1)';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -78,7 +78,7 @@ class Users
         return $req->execute();
     }
     /** requete test dans PHP MySQL
-     * INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersroles`) 
+     * INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersRoles`) 
      *VALUES ('lastname','firstname','50 rue de paris',75000,'PARIS','06 00 00 00 00','test@gmail.com','Pizza123!', 1);
      */
 
@@ -108,7 +108,7 @@ class Users
     {
         $sql = 'SELECT `lastname`, `firstname`, `email`, `phoneNumber`, `name` AS `roleName`
             FROM `hubx02_users`
-            INNER JOIN `hubx02_usersroles` ON `id_usersroles` = `hubx02_usersroles`.`id`
+            INNER JOIN `hubx02_usersRoles` ON `id_usersRoles` = `hubx02_usersRoles`.`id`
             WHERE`hubx02_users`.`id` = :id';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
@@ -118,7 +118,7 @@ class Users
     /** requete test dans PHP MySQL
      * SELECT `lastname`, `firstname`, `email`, `phoneNumber`, `name` AS `roleName`
      *  FROM `hubx02_users`
-     * INNER JOIN `hubx02_usersroles` ON `id_usersroles` = `hubx02_usersroles`.`id`
+     * INNER JOIN `hubx02_usersRoles` ON `id_usersRoles` = `hubx02_usersRoles`.`id`
      * WHERE`hubx02_users`.`id` = 1;
      */
 
@@ -130,14 +130,14 @@ class Users
      */
     public function getInfosByEmail()
     {
-        $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `id_usersroles` FROM `hubx02_users` WHERE `email` = :email';
+        $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `id_usersRoles` FROM `hubx02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_ASSOC);
     }
     /** requete test dans PHP MySQL
-     * SELECT `id`, `lastname`, `firstname`, `id_usersroles` FROM `hubx02_users` WHERE `email` = 'jean.dupont@gmail.com';
+     * SELECT `id`, `lastname`, `firstname`, `id_usersRoles` FROM `hubx02_users` WHERE `email` = 'jean.dupont@gmail.com';
      */
 
 
