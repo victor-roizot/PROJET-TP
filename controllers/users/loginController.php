@@ -15,8 +15,6 @@ if (isset($_SESSION['user'])) {
     exit;
 }
 
-// Je crée mon tableau d'erreurs
-$errors = [];
 
 // Si le formulaire a été envoyé en POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
