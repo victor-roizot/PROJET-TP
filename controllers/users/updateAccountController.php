@@ -51,8 +51,7 @@ if (isset($_POST['updateAdress'])) {
         if (preg_match($regex['city'], $_POST['city'])) {
             $user->city = clean($_POST['city']);
             if (
-                $user->checkIfExistsByUserCity() == 1 &&
-                $user->city != $_SESSION['user']['city']
+                $user->checkIfExistsByUserCity() == 1 && $user->city != $_SESSION['user']['city']
             ) {
                 $errors['city'] = USERS_CITY_ERROR_EXISTS;
             }
@@ -78,19 +77,20 @@ if (isset($_POST['updateAdress'])) {
 
 
 // UPDATE PHONENUMBER
-if (isset)
-if (!empty($_POST['phoneNumber'])) {
-    if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) {
-        $user->phoneNumber = clean($_POST['phoneNumber']);
-        if ($user->checkIfExistsByPhoneNumber() == 1 && $user->phoneNumber != $_SESSION['user']['phoneNumber']) {
-            $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
+if (isset($_POST['phoneNumber'])) {
+
+    if (!empty($_POST['phoneNumber'])) {
+        if (preg_match($regex['phoneNumber'], $_POST['phoneNumber'])) {
+            $user->phoneNumber = clean($_POST['phoneNumber']);
+            if ($user->checkIfExistsByPhoneNumber() == 1 && $user->phoneNumber != $_SESSION['user']['phoneNumber']) {
+                $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EXISTS;
+            }
+        } else {
+            $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_INVALID;
         }
     } else {
-        $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_INVALID;
+        $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EMPTY;
     }
-} else {
-    $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EMPTY;
-}
 
     if (empty($errors)) {
         if ($user->updatephoneNumber()) {
@@ -106,25 +106,28 @@ if (!empty($_POST['phoneNumber'])) {
 
 
 // UPDATE EMAIL
-if (!empty($_POST['email'])) {
-    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $user->email = clean($_POST['email']);
-        if ($user->checkIfExistsByEmail() == 1 && $user->email != $_SESSION['user']['email']) {
-            $errors['email'] = USERS_EMAIL_ERROR_EXISTS;
+if (isset($_POST['email'])) {
+
+    if (!empty($_POST['email'])) {
+        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $user->email = clean($_POST['email']);
+            if ($user->checkIfExistsByEmail() == 1 && $user->email != $_SESSION['user']['email']) {
+                $errors['email'] = USERS_EMAIL_ERROR_EXISTS;
+            }
+        } else {
+            $errors['email'] = USERS_EMAIL_ERROR_INVALID;
         }
     } else {
-        $errors['email'] = USERS_EMAIL_ERROR_INVALID;
+        $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
     }
-} else {
-    $errors['email'] = USERS_EMAIL_ERROR_EMPTY;
-}
 
-if (empty($errors)) {
-    if ($user->updateEmail()) {
-        $_SESSION['user']['email'] = $user->email;
-        $success = USERS_UPDATE_SUCCESS;
-    } else {
-        $errors['update'] = USERS_UPDATE_ERROR;
+    if (empty($errors)) {
+        if ($user->updateEmail()) {
+            $_SESSION['user']['email'] = $user->email;
+            $success = USERS_UPDATE_SUCCESS;
+        } else {
+            $errors['update'] = USERS_UPDATE_ERROR;
+        }
     }
 }
 

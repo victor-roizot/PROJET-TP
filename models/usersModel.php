@@ -23,11 +23,26 @@ class Users
     }
 
     /**
-     * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
-     * @param string $phoneNumber le numéro de téléphone
+     * Vérifie si un utilisateur existe dans la base de données avec l'adresse
+     * @param string $address l'adresse'
      * @return bool
      */
-    public function checkIfExistsByPhoneNumber()
+    public function checkIfExistsByUserAddress()
+    {
+        $sql = 'SELECT COUNT(`address`) FROM `hubx02_users` WHERE `address` = :address';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':address', $this->address, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_COLUMN);
+    }
+    
+    // refaire le code postal  + city
+        /**
+     * Vérifie si un utilisateur existe dans la base de données avec le code postal
+     * @param string $ZipCode le code postal
+     * @return bool
+     */
+    public function checkIfExistsByUserZipCode()
     {
         $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
         $req = $this->pdo->prepare($sql);
@@ -35,6 +50,34 @@ class Users
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+    
+    /**
+     * Vérifie si un utilisateur existe dans la base de données avec la ville
+     * @param string $city la ville
+     * @return bool
+     */
+    public function checkIfExistsByUserCity()
+    {
+        $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_COLUMN);
+    }
+    
+    /**
+ * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
+ * @param string $phoneNumber le numéro de téléphone
+ * @return bool
+ */
+public function checkIfExistsByPhoneNumber()
+{
+    $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
+    $req = $this->pdo->prepare($sql);
+    $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+    $req->execute();
+    return $req->fetch(PDO::FETCH_COLUMN);
+}
 
     /**
      * Vérifie si un utilisateur existe dans la base de données avec l'email

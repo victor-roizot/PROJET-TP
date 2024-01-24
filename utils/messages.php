@@ -18,14 +18,17 @@ define('USERS_FIRSTNAME_ERROR_INVALID', 'Le prénom de l\'utilisateur est invali
 // ADDRESS
 define('USERS_ADDRESS_ERROR_EMPTY', 'L\'adresse de l\'utilisateur est requis');
 define('USERS_ADDRESS_ERROR_INVALID', 'L\'adresse de l\'utilisateur est invalide. Il ne peut contenir que des lettres,des chiffres, des espaces, des tirets et des lettres accentuées');
+define('USERS_ADDRESS_ERROR_EXISTS', 'L\'adresse de l\'utilisateur existe déjà');
 
 // ZIPCODE
 define('USERS_ZIPCODE_ERROR_EMPTY', 'Le code postal de l\'utilisateur est requis');
 define('USERS_ZIPCODE_ERROR_INVALID', 'Le code postal de l\'utilisateur est invalide. Il ne peut contenir que des chiffres');
+define('USERS_ZIPCODE_ERROR_EXISTS', 'Le code postal de l\'utilisateur existe déjà');
 
 // CITY
 define('USERS_CITY_ERROR_EMPTY', 'La ville de l\'utilisateur est requis');
 define('USERS_CITY_ERROR_INVALID', 'La ville de l\'utilisateur est invalide. Il ne peut contenir que des lettres,des chiffres, des espaces, des tirets et des lettres accentuées');
+define('USERS_CITY_ERROR_EXISTS', 'La ville de l\'utilisateur existe déjà');
 
 // PHONENUMBER
 define('USERS_PHONENUMBER_ERROR_EMPTY', 'Le numéro de l\'utilisateur est requis');
