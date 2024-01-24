@@ -22,6 +22,7 @@ class Users
         }
     }
 
+
     /**
      * Vérifie si un utilisateur existe dans la base de données avec l'adresse
      * @param string $address l'adresse'
@@ -36,7 +37,7 @@ class Users
         return $req->fetch(PDO::FETCH_COLUMN);
     }
     
-    // refaire le code postal  + city
+
         /**
      * Vérifie si un utilisateur existe dans la base de données avec le code postal
      * @param string $ZipCode le code postal
@@ -44,13 +45,14 @@ class Users
      */
     public function checkIfExistsByUserZipCode()
     {
-        $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
+        $sql = 'SELECT COUNT(`zipCode`) FROM `hubx02_users` WHERE `zipCode` = :zipCode';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->bindValue(':zipCode', $this->zipCode, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
     
+
     /**
      * Vérifie si un utilisateur existe dans la base de données avec la ville
      * @param string $city la ville
@@ -58,13 +60,14 @@ class Users
      */
     public function checkIfExistsByUserCity()
     {
-        $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
+        $sql = 'SELECT COUNT(`city`) FROM `hubx02_users` WHERE `city` = :city';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->bindValue(':city', $this->city, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
-    
+
+
     /**
  * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
  * @param string $phoneNumber le numéro de téléphone
@@ -79,6 +82,7 @@ public function checkIfExistsByPhoneNumber()
     return $req->fetch(PDO::FETCH_COLUMN);
 }
 
+
     /**
      * Vérifie si un utilisateur existe dans la base de données avec l'email
      * @param string $email L'adresse email
@@ -92,6 +96,7 @@ public function checkIfExistsByPhoneNumber()
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+
 
     /**
      * Ajoute un utilisateur dans la base de données
@@ -124,6 +129,7 @@ public function checkIfExistsByPhoneNumber()
      * INSERT INTO `hubx02_users` (`lastname`,`firstname`,`address`,`zipCode`,`city`,`phoneNumber`,`email`,`password`,`id_usersRoles`) 
      *VALUES ('lastname','firstname','50 rue de paris',75000,'PARIS','06 00 00 00 00','test@gmail.com','Pizza123!', 1);
      */
+
 
     /**
      * Supprime un utilisateur selon son id
@@ -199,11 +205,12 @@ public function checkIfExistsByPhoneNumber()
         return $req->fetch(PDO::FETCH_COLUMN);
     }
 
+// REFAIRE LES COMMENTAIRES DES UPDATES
     /**
      * Met à jour le nom de l'utilisateur, l'adresse email et la date de naissance
      * @param string $username Le nom de l'utilisateur
      * @param string $email L'adresse email de l'utilisateur
-     * @param string $birthdate La date de naissance de l'utilisateur
+     * @param string $birthda La date de naissance de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
@@ -221,6 +228,13 @@ public function checkIfExistsByPhoneNumber()
      * UPDATE `hubx02_users` SET `address` = '10 rue de paris', `zipCode` = 75001, `city` = 'PARISS' WHERE `id`= 4;
      */
 
+
+    /**
+     * Met à jour le mot de passe de l'utilisateur
+     * @param string $password Le mot de passe de l'utilisateur
+     * @param int $id L'id de l'utilisateur à modifier
+     * @return bool
+     */
     public function updatephoneNumber()
     {
         $sql = 'UPDATE `hubx02_users` SET `phoneNumber` = :phoneNumber WHERE `id`= :id';
@@ -233,6 +247,13 @@ public function checkIfExistsByPhoneNumber()
      * UPDATE `hubx02_users` SET `phoneNumber` = '06 00 00 00 04' WHERE `id`= 4;
      */
 
+
+    /**
+     * Met à jour le mot de passe de l'utilisateur
+     * @param string $password Le mot de passe de l'utilisateur
+     * @param int $id L'id de l'utilisateur à modifier
+     * @return bool
+     */
     public function updateEmail()
     {
         $sql = 'UPDATE `hubx02_users` SET `email` = :email WHERE `id`= :id';
@@ -244,6 +265,7 @@ public function checkIfExistsByPhoneNumber()
     /** requete test dans PHP MySQL
      * UPDATE `hubx02_users` SET `email` = 'testquatre@gmail.com' WHERE `id`= 4;
      */
+
 
     /**
      * Met à jour le mot de passe de l'utilisateur

@@ -18,7 +18,7 @@ $user = new Users;
 $user->id = $_SESSION['user']['id'];
 $userAccount = $user->getById();
 
-// modif infos
+// UPDATE ADDRESS
 if (isset($_POST['updateAdress'])) {
 
     if (!empty($_POST['address'])) {
@@ -75,7 +75,6 @@ if (isset($_POST['updateAdress'])) {
 }
 
 
-
 // UPDATE PHONENUMBER
 if (isset($_POST['phoneNumber'])) {
 
@@ -103,8 +102,6 @@ if (isset($_POST['phoneNumber'])) {
 }
 
 
-
-
 // UPDATE EMAIL
 if (isset($_POST['email'])) {
 
@@ -130,8 +127,6 @@ if (isset($_POST['email'])) {
         }
     }
 }
-
-
 
 
 // UPDATE PASSWORD

@@ -26,17 +26,19 @@
             <h1 id="name"> Blackwook</h1>
         </div>
         <ul>
-            <li><a class="lien" href="/accueil">Accueil</a></li>
+            <li><a href="/accueil" class=lien>Accueil</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
-                <li><a class="lien" href="/inscription">inscription</a></li>
-                <li><a class="lien" href="/connexion">Connexion</a></li>
+                <li><a href="/inscription" class=lien>inscription</a></li>
+                <li><a href="/connexion" class=lien>Connexion</a></li>
             <?php } else { ?>
-                <li><a class="lien" href="/mon-compte"><?= $_SESSION['user']['lastname']
-                                                        ?></a></li>
                 <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-                    <li><a class="lien" href="/dashboard">Admin</a></li>
+                    <li><a href="/ajout-article" class="lien">Ecrire</a></li>
                 <?php } ?>
-                <li><a class="lien" href="/deconnexion">Déconnexion</a></li>
+                <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
+                <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
+                    <li><a href="/dashboard" class=lien>Admin</a></li>
+                <?php } ?>
+                <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
             <?php } ?>
         </ul>
     </nav>
