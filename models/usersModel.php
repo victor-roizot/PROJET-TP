@@ -155,7 +155,7 @@ public function checkIfExistsByPhoneNumber()
      */
     public function getById()
     {
-        $sql = 'SELECT `lastname`, `firstname`, `email`, `phoneNumber`, `name` AS `roleName`
+        $sql = 'SELECT `lastname`, `firstname`, `address`, `zipCode`, `city`, `email`, `phoneNumber`, `name` AS `roleName`
             FROM `hubx02_users`
             INNER JOIN `hubx02_usersRoles` ON `id_usersRoles` = `hubx02_usersRoles`.`id`
             WHERE`hubx02_users`.`id` = :id';
