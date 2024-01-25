@@ -214,7 +214,7 @@ public function checkIfExistsByPhoneNumber()
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
-    public function updateAdress()
+    public function updateAddress()
     {
         $sql = 'UPDATE `hubx02_users` SET `address` = :address, `zipCode` = :zipCode, `city` = :city WHERE `id`= :id';
         $req = $this->pdo->prepare($sql);
@@ -235,7 +235,7 @@ public function checkIfExistsByPhoneNumber()
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
-    public function updatephoneNumber()
+    public function updatePhoneNumber()
     {
         $sql = 'UPDATE `hubx02_users` SET `phoneNumber` = :phoneNumber WHERE `id`= :id';
         $req = $this->pdo->prepare($sql);

@@ -19,7 +19,7 @@ $user->id = $_SESSION['user']['id'];
 $userAccount = $user->getById();
 
 // UPDATE ADDRESS
-if (isset($_POST['updateAdress'])) {
+if (isset($_POST['updateAddress'])) {
 
     if (!empty($_POST['address'])) {
         if (preg_match($regex['address'], $_POST['address'])) {
@@ -63,7 +63,7 @@ if (isset($_POST['updateAdress'])) {
     }
 
     if (empty($errors)) {
-        if ($user->updateAdress()) {
+        if ($user->updateAddress()) {
             $_SESSION['user']['address'] = $user->address;
             $_SESSION['user']['zipCode'] = $user->zipCode;
             $_SESSION['user']['city'] = $user->city;

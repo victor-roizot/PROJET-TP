@@ -3,3 +3,4 @@
 <p>E-mail : <?= $userAccount->email ?></p>
 <p>Numéro : <?= $userAccount->phoneNumber ?></p>
 <p>Rôle : <?= $userAccount->roleName ?></p>
+<a class=lien href="/modifier-mon-compte">Modifier mes informations</a>
