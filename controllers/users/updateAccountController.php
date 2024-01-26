@@ -18,7 +18,7 @@ $user = new Users;
 $user->id = $_SESSION['user']['id'];
 $userAccount = $user->getById();
 
-// UPDATE ADDRESS
+// UPDATE ADDRESS (Address + Zipcode + City)
 if (isset($_POST['updateAddress'])) {
 
     if (!empty($_POST['address'])) {

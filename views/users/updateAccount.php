@@ -13,19 +13,19 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon adresse</h2>
         <label for="address">Adresse</label>
-        <input type="text" name="address" id="address" placeholder="50 rue de la republique" value="<?= $userAccount->address ?>">
+        <input type="text" name="address" id="address" value="<?= $userAccount->address ?>">
         <?php if (isset($errors['address'])) { ?>
             <p><?= $errors['address'] ?></p>
         <?php } ?>
 
         <label for="zipCode">Code postal</label>
-        <input type="text" name="zipCode" id="zipCode" placeholder="75000" value="<?= $userAccount->zipCode ?>">
+        <input type="text" name="zipCode" id="zipCode" value="<?= $userAccount->zipCode ?>">
         <?php if (isset($errors['zipCode'])) { ?>
             <p><?= $errors['zipCode'] ?></p>
         <?php } ?>
 
         <label for="city">Ville</label>
-        <input type="text" name="city" id="city" placeholder="PARIS" value="<?= $userAccount->city ?>">
+        <input type="text" name="city" id="city" value="<?= $userAccount->city ?>">
         <?php if (isset($errors['city'])) { ?>
             <p><?= $errors['city'] ?></p>
         <?php } ?>
@@ -43,7 +43,7 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon numéro</h2>
         <label for="phoneNumber">Numéro</label>
-        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="06 00 00 00 00" value="<?= $userAccount->phoneNumber ?>">
+        <input type="text" name="phoneNumber" value="<?= $userAccount->phoneNumber ?>">
         <?php if (isset($errors['phoneNumber'])) { ?>
             <p><?= $errors['phoneNumber'] ?></p>
         <?php } ?>
@@ -61,7 +61,7 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon email</h2>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="test@gmail.com" value="<?= $userAccount->email ?>">
+        <input type="text" name="email" id="email" value="<?= $userAccount->email ?>">
         <?php if (isset($errors['email'])) { ?>
             <p><?= $errors['email'] ?></p>
         <?php } ?>

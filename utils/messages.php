@@ -49,15 +49,7 @@ define('USERS_PASSWORD_CONFIRM_ERROR_EMPTY', 'La confirmation du mot de passe es
 // LOGIN
 define('USERS_LOGIN_ERROR', 'Votre adresse mail ou votre mot de passe est incorrect');
 
-
-// Birthdate
-define('USERS_BIRTHDATE_ERROR_EMPTY', 'La date de naissance est requise');
-define('USERS_BIRTHDATE_ERROR_INVALID', 'La date de naissance est invalide. Elle doit être au format YYYY-MM-DD');
-
-
-
-// a verifier a partir d'ici
-// Forms
+// UPDATE
 define('USERS_UPDATE_SUCCESS', 'Votre compte a bien été mis à jour');
 define('USERS_UPDATE_ERROR', 'Une erreur est survenue lors de la mise à jour de votre compte');
 
@@ -65,6 +57,10 @@ define('USERS_PASSWORD_UPDATE_SUCCESS', 'Votre mot de passe a bien été mis à 
 define('USERS_PASSWORD_UPDATE_ERROR', 'Une erreur est survenue lors de la mise à jour de votre mot de passe');
 
 
+
+
+
+// a verifier a partir d'ici
 // ARTICLES
 // Title
 define('ARTICLE_TITLE_ERROR_EMPTY', 'Le titre est requis');

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackwook</title>
-    <link rel="shortcut icon" href="../../assets/img/lambda half life.jpg">
+    <link rel="shortcut icon" href="../../assets/img/_e7ee94ed-7b05-44d4-8dbe-fafed355417b.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 <body>
     <nav>
         <div>
-            <a href="/accueil"><img id="logo" src="../../assets/img/lambda half life.jpg" alt="Logo"></a>
+            <a href="/accueil"><img id="logo" src="../../assets/img/_e7ee94ed-7b05-44d4-8dbe-fafed355417b.jpg" alt="Logo"></a>
             <h1 id="name"> Blackwook</h1>
         </div>
         <ul>
