@@ -37,9 +37,6 @@ if (isset($_POST['updateAddress'])) {
     if (!empty($_POST['zipCode'])) {
         if (preg_match($regex['zipCode'], $_POST['zipCode'])) {
             $user->zipCode = strip_tags($_POST['zipCode']);
-            if ($user->checkIfExistsByUserZipCode() == 1 && $user->zipCode != $_SESSION['user']['zipCode']) {
-                $errors['zipCode'] = USERS_ZIPCODE_ERROR_EXISTS;
-            }
         } else {
             $errors['zipCode'] = USERS_ZIPCODE_ERROR_INVALID;
         }
@@ -50,11 +47,6 @@ if (isset($_POST['updateAddress'])) {
     if (!empty($_POST['city'])) {
         if (preg_match($regex['city'], $_POST['city'])) {
             $user->city = clean($_POST['city']);
-            if (
-                $user->checkIfExistsByUserCity() == 1 && $user->city != $_SESSION['user']['city']
-            ) {
-                $errors['city'] = USERS_CITY_ERROR_EXISTS;
-            }
         } else {
             $errors['city'] = USERS_CITY_ERROR_INVALID;
         }

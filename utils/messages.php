@@ -6,7 +6,6 @@
 $errors = [];
 
 // USERS
-
 // LASTNAME
 define('USERS_LASTNAME_ERROR_EMPTY', 'Le nom d\'utilisateur est requis');
 define('USERS_LASTNAME_ERROR_INVALID', 'Le nom d\'utilisateur est invalide. Il ne peut contenir que des lettres, des lettres accentuées, des espaces, des tirets et des apostrophes');

@@ -13,19 +13,19 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon adresse</h2>
         <label for="address">Adresse</label>
-        <input type="text" name="address" id="address" value="<?= $userAccount->address ?>">
+        <input type="text" name="address" id="address" placeholder="50 rue de la republique">
         <?php if (isset($errors['address'])) { ?>
             <p><?= $errors['address'] ?></p>
         <?php } ?>
 
         <label for="zipCode">Code postal</label>
-        <input type="text" name="zipCode" id="zipCode" value="<?= $userAccount->zipCode ?>">
+        <input type="text" name="zipCode" id="zipCode" placeholder="75000">
         <?php if (isset($errors['zipCode'])) { ?>
             <p><?= $errors['zipCode'] ?></p>
         <?php } ?>
 
         <label for="city">Ville</label>
-        <input type="text" name="city" id="city" value="<?= $userAccount->city ?>">
+        <input type="text" name="city" id="city" placeholder="PARIS">
         <?php if (isset($errors['city'])) { ?>
             <p><?= $errors['city'] ?></p>
         <?php } ?>
@@ -43,7 +43,7 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon numéro</h2>
         <label for="phoneNumber">Numéro</label>
-        <input type="text" name="phoneNumber" value="<?= $userAccount->phoneNumber ?>">
+        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="06 00 00 00 00">
         <?php if (isset($errors['phoneNumber'])) { ?>
             <p><?= $errors['phoneNumber'] ?></p>
         <?php } ?>
@@ -61,7 +61,7 @@
     <form action="/modifier-mon-compte" method="post">
         <h2>Modifier mon email</h2>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" value="<?= $userAccount->email ?>">
+        <input type="text" name="email" id="email" placeholder="test@gmail.com">
         <?php if (isset($errors['email'])) { ?>
             <p><?= $errors['email'] ?></p>
         <?php } ?>
@@ -94,4 +94,22 @@
         <input type="submit" value="Modifier" name="updatePassword">
 
     </form>
+</div>
+
+
+<div class="formContainer">
+    <h2>Supprimer mon compte</h2>
+
+    <button id="openModalBtn">Supprimer</button>
+</div>
+
+
+<div id="modalContainer">
+    <div id="modal">
+        <span id="closeBtn">&times;</span>
+        <p id="modalText">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+        <form action="/modifier-mon-compte" method="POST">
+            <button  type="submit" name="deleteAccount">Supprimer</button>
+        </form>
+    </div>
 </div>

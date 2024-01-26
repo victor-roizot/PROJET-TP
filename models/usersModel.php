@@ -25,7 +25,7 @@ class Users
 
     /**
      * Vérifie si un utilisateur existe dans la base de données avec l'adresse
-     * @param string $address l'adresse'
+     * @param string $address l'adresse
      * @return bool
      */
     public function checkIfExistsByUserAddress()
@@ -33,36 +33,6 @@ class Users
         $sql = 'SELECT COUNT(`address`) FROM `hubx02_users` WHERE `address` = :address';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':address', $this->address, PDO::PARAM_STR);
-        $req->execute();
-        return $req->fetch(PDO::FETCH_COLUMN);
-    }
-    
-
-        /**
-     * Vérifie si un utilisateur existe dans la base de données avec le code postal
-     * @param string $ZipCode le code postal
-     * @return bool
-     */
-    public function checkIfExistsByUserZipCode()
-    {
-        $sql = 'SELECT COUNT(`zipCode`) FROM `hubx02_users` WHERE `zipCode` = :zipCode';
-        $req = $this->pdo->prepare($sql);
-        $req->bindValue(':zipCode', $this->zipCode, PDO::PARAM_INT);
-        $req->execute();
-        return $req->fetch(PDO::FETCH_COLUMN);
-    }
-    
-
-    /**
-     * Vérifie si un utilisateur existe dans la base de données avec la ville
-     * @param string $city la ville
-     * @return bool
-     */
-    public function checkIfExistsByUserCity()
-    {
-        $sql = 'SELECT COUNT(`city`) FROM `hubx02_users` WHERE `city` = :city';
-        $req = $this->pdo->prepare($sql);
-        $req->bindValue(':city', $this->city, PDO::PARAM_STR);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
