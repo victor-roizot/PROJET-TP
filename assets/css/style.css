@@ -124,7 +124,7 @@ form input[type=checkbox] {
 }
 
 #modal {
-    background-color: whitesmoke;
+    background-color: red;
     padding: 1rem;
     width: 50%;
 }

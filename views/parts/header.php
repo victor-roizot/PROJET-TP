@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackwook</title>
+    <title>Blackwood</title>
     <link rel="shortcut icon" href="../../assets/img/_e7ee94ed-7b05-44d4-8dbe-fafed355417b.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
