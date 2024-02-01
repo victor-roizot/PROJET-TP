@@ -31,9 +31,6 @@
                 <li><a href="/inscription" class=lien>inscription</a></li>
                 <li><a href="/connexion" class=lien>Connexion</a></li>
             <?php } else { ?>
-                <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-                    <li><a href="/ajout-article" class="lien">Ecrire</a></li>
-                <?php } ?>
                 <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
                 <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
                     <li><a href="/dashboard" class=lien>Admin</a></li>
