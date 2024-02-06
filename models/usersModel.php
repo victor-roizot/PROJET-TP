@@ -33,6 +33,7 @@ class Users
 
     /**
      * public function est une méthodes de la classe (fonction rattachée à une classe).
+     * 
      * Vérifie si un utilisateur existe dans la base de données avec l'adresse
      * @param string $address l'adresse
      * @return bool
@@ -45,6 +46,9 @@ class Users
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+    /** requete test dans PHP MySQL
+     * SELECT COUNT(`address`) FROM `hubx02_users` WHERE `address` = '5 rue de paris';
+     */
 
 
     /**
@@ -60,6 +64,9 @@ class Users
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+        /** requete test dans PHP MySQL
+     * SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = '06 00 00 00 01';
+     */
 
 
     /**
@@ -75,6 +82,9 @@ class Users
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+    /** requete test dans PHP MySQL
+     * SELECT COUNT(`email`) FROM `hubx02_users` WHERE `email` = 'doe.john@gmail.com';
+     */
 
 
     /**

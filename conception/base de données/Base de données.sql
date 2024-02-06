@@ -15,6 +15,13 @@ CREATE TABLE HuBX02_categories(
 	,CONSTRAINT categories_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
+/*
+rajout de la population
+USE `projet_tp`;
+INSERT INTO `HuBX02_categories` (`id`, `name`) VALUES 
+(1,'Couple'),
+(2,'Famille');
+*/
 
 #------------------------------------------------------------
 # Table: HuBX02_items
@@ -41,6 +48,15 @@ CREATE TABLE HuBX02_usersRoles(
         name Char (255) NOT NULL
 	,CONSTRAINT usersroles_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
+
+/*
+rajout de la population
+USE `projet_tp`;
+INSERT INTO `hubx02_usersRoles` (`id`, `name`)VALUES 
+(1,'Utilisateur'),
+(125,'Modérateur'),
+(255,'Administrateur');
+*/
 
 #------------------------------------------------------------
 # Table: HuBX02_users
