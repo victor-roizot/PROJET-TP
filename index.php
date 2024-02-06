@@ -1,8 +1,10 @@
-<?php 
+<?php
+// Démarrage de la session
 session_start();
-require_once 'views/parts/header.php'; 
+// Requires des vues
+require_once 'views/parts/header.php';
 ?>
-
+<!-- La page d'accueil-->
 <section class="pageIntroduction">
     <h1>La Manu Post</h1>
     <p class="subTitle">Démo inscription - connexion - PDO</p>
@@ -30,7 +32,7 @@ require_once 'views/parts/header.php';
     </p>
     <p>
         A la racine du projet, nous avons 3 dossiers :
-    </p>   
+    </p>
     <ul>
         <li>Le dossier <code>controllers</code></li>
         <li>Le dossier <code>models</code></li>
@@ -51,5 +53,4 @@ require_once 'views/parts/header.php';
         Cette section sera complétée au moment de la démonstration de PDO.
     </p>
 </section>
-
 <?php require_once 'views/parts/footer.php'; ?>
