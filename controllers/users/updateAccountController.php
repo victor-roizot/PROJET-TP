@@ -20,20 +20,26 @@ $userAccount = $user->getById();
 
 // UPDATE ADDRESS (Address + Zipcode + City)
 if (isset($_POST['updateAddress'])) {
-
+    //Je vérifie que les champs ne sont pas vides
     if (!empty($_POST['address'])) {
+        //Je vérifie que address est valide
         if (preg_match($regex['address'], $_POST['address'])) {
+            // Et je le stocke dans une variable
             $user->address = clean($_POST['address']);
-            if ($user->checkIfExistsByUserAddress() == 1 && $user->address != $_SESSION['user']['address']) {
+            if
+            //Je vérifie que adress existe et correspond a l'utilisateur
+            ($user->checkIfExistsByUserAddress() == 1 && $user->address != $_SESSION['user']['address']) {
                 $errors['address'] = USERS_ADDRESS_ERROR_EXISTS;
             }
         } else {
+            // Sinon, je remplis mon tableau d'erreurs
             $errors['address'] = USERS_ADDRESS_ERROR_INVALID;
         }
     } else {
         $errors['address'] = USERS_ADDRESS_ERROR_EMPTY;
     }
 
+    //Je vérifie pour tous les autres champs de la même manière.
     if (!empty($_POST['zipCode'])) {
         if (preg_match($regex['zipCode'], $_POST['zipCode'])) {
             $user->zipCode = strip_tags($_POST['zipCode']);
@@ -53,8 +59,9 @@ if (isset($_POST['updateAddress'])) {
     } else {
         $errors['city'] = USERS_CITY_ERROR_EMPTY;
     }
-
+    // Si je n'ai aucune erreur
     if (empty($errors)) {
+        // Je modifie l'utilisateur et un message de succès.
         if ($user->updateAddress()) {
             $_SESSION['user']['address'] = $user->address;
             $_SESSION['user']['zipCode'] = $user->zipCode;
@@ -68,6 +75,7 @@ if (isset($_POST['updateAddress'])) {
 
 
 // UPDATE PHONENUMBER
+// Je répète  les mêmes étapes pour chaque champs
 if (isset($_POST['phoneNumber'])) {
 
     if (!empty($_POST['phoneNumber'])) {
@@ -151,7 +159,13 @@ if (isset($_POST['updatePassword'])) {
     }
 }
 
-
+/**
+ * Pour supprimer l'utilisateur, je supprime la variable user avec la fonction delete (méthode créée dans le  usersModel) et je redirige l'utilisateur vers la page de connexion.
+ * Je détruis ma variable $_SESSION avec unset($_SESSION)
+ * Je détruis la session avec session_destroy()
+ * Je redirige l'utilisateur vers la page de connexion avec header('Location: /connexion')
+ * Je termine le script avec exit
+ */
 if (isset($_POST['deleteAccount'])) {
     if ($user->delete()) {
         unset($_SESSION);
@@ -161,6 +175,7 @@ if (isset($_POST['deleteAccount'])) {
     }
 }
 
+//Les 3 require des vues ou parties de vue sont inséparables et toujours à la fin parce que c'est l'affichage du résultat final des actions du contrôleur
 
 require_once '../../views/parts/header.php';
 require_once '../../views/users/updateAccount.php';

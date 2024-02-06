@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // Si je n'ai aucune erreur
     if (empty($errors)) {
-        // Je crée l'utilisateur et un message de success.
+        // Je crée l'utilisateur et un message de succès.
         if ($user->create()) {
             $success = 'L\'utilisateur a bien été créé';
         }
