@@ -53,37 +53,68 @@ class Items
 
 
     /**
-     * Récupère la liste de tous les Items
-     * @return array
+     * Supprime un item selon son id
+     * @param int $id L'id de l'item (cabane) à supprimer
+     * @return bool
      */
-    public function getList()
+    public function delete()
     {
-        $sql = 'SELECT `a`.`id`,`title`, SUBSTR(`content`, 1, 500) AS `content`, DATE_FORMAT(`publicationDate`, "le %d/%m/%Y à %Hh%i") AS `publicationDateFr`,DATE_FORMAT(`updateDate`, "le %d/%m/%Y à %Hh%i") AS `updateDateFr`,`image`, `username`, `name` AS `category`
-        FROM `pab7o_Items` AS `a`
-        INNER JOIN `pab7o_users` AS `u` ON `id_users` = `u`.`id`
-        INNER JOIN `pab7o_Itemscategories` AS `c` ON `id_ItemsCategories` = `c`.`id`
-        ORDER BY `publicationDate` DESC';
-        $req = $this->pdo->query($sql);
-        return $req->fetchAll(PDO::FETCH_OBJ);
+        $sql =  'DELETE FROM `hubx02_items` WHERE `id` = :id';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $req->execute();
     }
+    /**  requete test dans PHP MySQL
+     * DELETE FROM `hubx02_items` WHERE `id` = 2;
+     */
+
 
     /**
-     * Récupère un item par un son id
-     * @param int $id Id de l'article
+     * Récupère un item (cabane) par un son id
+     * @param int $id id de l'item
      * @return object 
      */
     public function getById()
     {
-        $sql = 'SELECT `title`, `content`, DATE_FORMAT(`publicationDate`, "le %d/%m/%Y à %Hh%i") AS `publicationDateFr`, DATE_FORMAT(`updateDate`, "le %d/%m/%Y à %Hh%i") AS `updateDateFr`,`image`, `username`, `name` AS `category`
-        FROM `pab7o_Items` AS `a`
-        INNER JOIN `pab7o_users` AS `u` ON `id_users` = `u`.`id`
-        INNER JOIN `pab7o_Itemscategories` AS `c` ON `id_ItemsCategories` = `c`.`id`
-        WHERE `a`.`id` = :id';
+        $sql = 'SELECT `hut`, `image`, `description`, `name` AS `categorie`
+            FROM `hubx02_items` AS `i`
+            INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
+            WHERE `i`.`id` = :id';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_OBJ);
     }
+    /** requete test dans PHP MySQL
+     * SELECT `hut`, `image`, `description`, `name` AS `categorie`
+     *  FROM `hubx02_items` AS `i`
+     *  INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
+     *  WHERE `i`.`id` = 1;
+     */
+
+
+    /**
+     * Récupère la liste de tous les Items (cabanes)
+     * @return array
+     */
+    public function getList()
+    {
+        $sql = 'SELECT `i`.`id`, `hut`, `image`, SUBSTR(`description`, 1, 500) AS `description`, `name` AS `categorie`
+        FROM `hubx02_items` AS `i`
+        INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
+    ORDER BY `i`.`id` DESC';
+        $req = $this->pdo->query($sql);
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
+    /** requete test dans PHP MySQL
+     * SELECT `i`.`id`, `hut`, `image`, SUBSTR(`description`, 1, 10) AS `description`, `name` AS `categorie`
+     * FROM `hubx02_items` AS `i`
+     * INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
+     * ORDER BY `i`.`id` DESC;
+     */
+
+
+
 
     public function checkIfExists()
     {
