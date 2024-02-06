@@ -5,7 +5,8 @@
 
 $errors = [];
 
-// USERS
+//USERS
+
 // LASTNAME
 define('USERS_LASTNAME_ERROR_EMPTY', 'Le nom d\'utilisateur est requis');
 define('USERS_LASTNAME_ERROR_INVALID', 'Le nom d\'utilisateur est invalide. Il ne peut contenir que des lettres, des lettres accentuées, des espaces, des tirets et des apostrophes');
@@ -16,7 +17,7 @@ define('USERS_FIRSTNAME_ERROR_INVALID', 'Le prénom de l\'utilisateur est invali
 
 // ADDRESS
 define('USERS_ADDRESS_ERROR_EMPTY', 'L\'adresse de l\'utilisateur est requis');
-define('USERS_ADDRESS_ERROR_INVALID', 'L\'adresse de l\'utilisateur est invalide. Il ne peut contenir que des lettres,des chiffres, des espaces, des tirets et des lettres accentuées');
+define('USERS_ADDRESS_ERROR_INVALID', 'L\'adresse de l\'utilisateur est invalide. Il ne peut contenir que des lettres,des lettres accentuées, des chiffres, des espaces, et des tirets');
 define('USERS_ADDRESS_ERROR_EXISTS', 'L\'adresse de l\'utilisateur existe déjà');
 
 // ZIPCODE
@@ -26,12 +27,12 @@ define('USERS_ZIPCODE_ERROR_EXISTS', 'Le code postal de l\'utilisateur existe d�
 
 // CITY
 define('USERS_CITY_ERROR_EMPTY', 'La ville de l\'utilisateur est requis');
-define('USERS_CITY_ERROR_INVALID', 'La ville de l\'utilisateur est invalide. Il ne peut contenir que des lettres,des chiffres, des espaces, des tirets et des lettres accentuées');
+define('USERS_CITY_ERROR_INVALID', 'La ville de l\'utilisateur est invalide. Il ne peut contenir que des lettres, des lettres accentuées, des espaces, des tirets et des apostrophes');
 define('USERS_CITY_ERROR_EXISTS', 'La ville de l\'utilisateur existe déjà');
 
 // PHONENUMBER
 define('USERS_PHONENUMBER_ERROR_EMPTY', 'Le numéro de l\'utilisateur est requis');
-define('USERS_PHONENUMBER_ERROR_INVALID', 'Le numéro de l\'utilisateur est invalide. Il ne peut contenir que des chiffres, des tirets et des caractères spéciaux');
+define('USERS_PHONENUMBER_ERROR_INVALID', 'Le numéro de l\'utilisateur est invalide. Il ne peut contenir que des chiffres, et  des espaces entre un groupe de deux chiffres');
 define('USERS_PHONENUMBER_ERROR_EXISTS', 'Le numéro de téléphone existe déjà');
 
 // MAIL
@@ -73,7 +74,7 @@ define('ARTICLE_CONTENT_ERROR_INVALID', 'Le contenu est invalide. Il ne peut pas
 define('ARTICLE_CATEGORIES_ERROR_EMPTY', 'La catégorie est requise');
 define('ARTICLE_CATEGORIES_ERROR_INVALID', 'La catégorie est invalide');
 
-// Image
+// IMAGE
 define('ARTICLE_IMAGE_ERROR_EMPTY', 'L\'image est requise');
 define('ARTICLE_IMAGE_ERROR_INVALID', 'L\'image est invalide');
 define('ARTICLE_IMAGE_ERROR_EXTENSION', 'L\'image est invalide. Elle doit être au format jpg, jpeg, png, gif ou webp');
