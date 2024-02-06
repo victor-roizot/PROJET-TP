@@ -1,3 +1,4 @@
+<!-- L'utilisateur créera son compte  par ce formulaire -->
 <section>
     <h1>Inscription</h1>
     <?php if (isset($success)) { ?>

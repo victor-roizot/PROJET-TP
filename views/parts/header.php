@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ici sera la partie visible du header -->
 <html lang="fr">
 
 <head>
@@ -10,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
-
+<!-- chargement de tinymce pour les ajouts commentaire et item -->
     <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -32,6 +33,7 @@
                 <li><a href="/connexion" class=lien>Connexion</a></li>
             <?php } else { ?>
                 <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
+                <!-- l'utilisateur aura accès à dashboard  uniquement s'il est administrateur -->
                 <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
                     <li><a href="/dashboard" class=lien>Admin</a></li>
                 <?php } ?>

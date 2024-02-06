@@ -1,3 +1,4 @@
+<!-- L'utilisateur se connectera  par ce formulaire -->
 <section>
     <h1>Connexion</h1>
     <form action="#" method="POST">

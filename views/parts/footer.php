@@ -1,3 +1,4 @@
+<!-- ici sera la partie visible du footer -->
 </main>
 <footer>
 
