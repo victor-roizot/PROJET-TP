@@ -8,13 +8,12 @@ require_once '../../utils/functions.php';
 // Démarrage de la session
 session_start();
 
-// Je vérifie si la personne est connectée. Si oui, je la redirige vers la page mon-compte
+// Vérification si la personne est connectée. Si oui, je la redirige vers la page mon-compte
 
 if (isset($_SESSION['user'])) {
     header('Location: /mon-compte');
     exit;
 }
-
 
 // Si le formulaire a été envoyé en POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -47,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Si je n'ai aucune erreur
     if (empty($errors)) {
-        // Je vérifie que l'email et le mot de passe correspondent à ceux stockés dans le tableau $credentials (plus tard, ce sera une requête SQL). S'il y a une erreur, je ne précise pas si c'est l'email ou le mot de passe qui est incorrect pour ne pas donner d'informations à un éventuel pirate.
+        // Vérification que l'email et le mot de passe correspondent à ceux stockés dans le tableau. S'il y a une erreur, je ne précise pas si c'est l'email ou le mot de passe qui est incorrect.
         if (!password_verify($password, $user->password)) {
             $errors['email'] = $errors['password'] = USERS_LOGIN_ERROR;
         } else {
@@ -58,12 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             /**
-             * Dans tous les cas, si les informations sont correctes, je crée une session qui contient les informations de l'utilisateur. Ici, je ne mets que quelques informations, mais je peux mettre toutes les informations que je veux (nom, prénom, rôle, etc.)
-             * Je ne stocke que des informations peu sensibles dans la session (pas de mot de passe, pas de numéro de carte bancaire, etc.)
+             * Dans tous les cas, si les informations sont correctes, je crée une session qui contient les informations de l'utilisateur.
              * Ca me permettra de savoir si l'utilisateur est connecté ou non en vérifiant si la session existe ou non.
              * Je peux aussi stocker l'id de l'utilisateur dans la session pour pouvoir faire des requêtes SQL avec.
              * Ou vérifier s'il a le bon rôle pour accéder à certaines pages.
-             * Je peux également utiliser la session pour stocker des informations qui ne sont pas propres à l'utilisateur (par exemple, le panier d'un utilisateur non connecté).
              */
             $_SESSION['user'] = $user->getInfosByEmail();
             header('Location: /mon-compte');

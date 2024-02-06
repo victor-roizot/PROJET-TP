@@ -9,7 +9,7 @@ require_once '../../utils/functions.php';
 session_start();
 
 // Vérification si l'utilisateur est connecté
-if(!empty($_SESSION['user'])){
+if (!empty($_SESSION['user'])) {
     header('Location: /');
     exit;
 }
@@ -17,17 +17,21 @@ if(!empty($_SESSION['user'])){
 // Vérification du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new Users();
-
+    //Je vérifie que les champs ne sont pas vides
     if (!empty($_POST['lastname'])) {
+        //Je vérifie que lastname est valide
         if (preg_match($regex['name'], $_POST['lastname'])) {
+            // Et je le stocke dans une variable
             $user->lastname = clean($_POST['lastname']);
         } else {
+            // Sinon, je remplis mon tableau d'erreurs
             $errors['lastname'] = USERS_LASTNAME_ERROR_INVALID;
         }
     } else {
         $errors['lastname'] = USERS_LASTNAME_ERROR_EMPTY;
     }
 
+    //Je vérifie pour tous les autres champs de la même manière.
     if (!empty($_POST['firstname'])) {
         if (preg_match($regex['name'], $_POST['firstname'])) {
             $user->firstname = clean($_POST['firstname']);
@@ -111,15 +115,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
     }
-
+    // Si je n'ai aucune erreur
     if (empty($errors)) {
+        // Je crée l'utilisateur et un message de success.
         if ($user->create()) {
             $success = 'L\'utilisateur a bien été créé';
         }
     }
 }
 
-// Requires des vues
+//Les 3 require des vues ou parties de vue sont inséparables et toujours à la fin parce que c'est l'affichage du résultat final des actions du contrôleur
+
 require_once '../../views/parts/header.php';
 require_once '../../views/users/register.php';
 require_once '../../views/parts/footer.php';
