@@ -1,4 +1,8 @@
 <?php
+
+/** Users est une classe.
+ * Je cree le users avec des attributs 
+ **/
 class Users
 {
     public int $id;
@@ -13,6 +17,11 @@ class Users
     public int $id_usersRoles;
     private $pdo;
 
+    /** construct est une  methode.
+     * Il est appelé automatiquement lorsqu'on instancie la classe.
+     * Il permet de lancer une action automatiquement lorsqu'on instancie la classe
+     *
+     **/
     public function __construct()
     {
         try {
@@ -22,8 +31,8 @@ class Users
         }
     }
 
-
     /**
+     * public function est une méthodes de la classe (fonction rattachée à une classe).
      * Vérifie si un utilisateur existe dans la base de données avec l'adresse
      * @param string $address l'adresse
      * @return bool
@@ -39,18 +48,18 @@ class Users
 
 
     /**
- * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
- * @param string $phoneNumber le numéro de téléphone
- * @return bool
- */
-public function checkIfExistsByPhoneNumber()
-{
-    $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
-    $req = $this->pdo->prepare($sql);
-    $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
-    $req->execute();
-    return $req->fetch(PDO::FETCH_COLUMN);
-}
+     * Vérifie si un utilisateur existe dans la base de données avec le numéro de téléphone
+     * @param string $phoneNumber le numéro de téléphone
+     * @return bool
+     */
+    public function checkIfExistsByPhoneNumber()
+    {
+        $sql = 'SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = :phoneNumber';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_COLUMN);
+    }
 
 
     /**
@@ -175,12 +184,11 @@ public function checkIfExistsByPhoneNumber()
         return $req->fetch(PDO::FETCH_COLUMN);
     }
 
-// REFAIRE LES COMMENTAIRES DES UPDATES
     /**
      * Met à jour le nom de l'utilisateur, l'adresse email et la date de naissance
-     * @param string $username Le nom de l'utilisateur
-     * @param string $email L'adresse email de l'utilisateur
-     * @param string $birthda La date de naissance de l'utilisateur
+     * @param string $address Le nom de l'utilisateur
+     * @param string $zipCode Le code postal de l'utilisateur
+     * @param string $city La ville de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
@@ -200,8 +208,8 @@ public function checkIfExistsByPhoneNumber()
 
 
     /**
-     * Met à jour le mot de passe de l'utilisateur
-     * @param string $password Le mot de passe de l'utilisateur
+     * Met à jour le numéro de téléphone de l'utilisateur
+     * @param string $phoneNumber numéro de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
@@ -219,8 +227,8 @@ public function checkIfExistsByPhoneNumber()
 
 
     /**
-     * Met à jour le mot de passe de l'utilisateur
-     * @param string $password Le mot de passe de l'utilisateur
+     * Met à jour le email de l'utilisateur
+     * @param string $email Le mail de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */
