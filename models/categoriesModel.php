@@ -34,14 +34,14 @@ class categories
      */
     public function checkIfExistsById()
     {
-        $sql = 'SELECT COUNT(*) FROM `hubx02_categories` WHERE `id` = :id';
+        $sql = 'SELECT COUNT(`id`) FROM `hubx02_categories` WHERE `id` = :id';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
     /** requete test dans PHP MySQL
-     *SELECT COUNT(*) FROM `hubx02_categories` WHERE `id` = 1;
+     *SELECT COUNT(`id`) FROM `hubx02_categories` WHERE `id` = 1;
      */
 
     

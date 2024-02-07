@@ -31,6 +31,7 @@ class Users
         }
     }
 
+
     /**
      * public function est une méthodes de la classe (fonction rattachée à une classe).
      * 
@@ -64,7 +65,7 @@ class Users
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
-        /** requete test dans PHP MySQL
+    /** requete test dans PHP MySQL
      * SELECT COUNT(`phoneNumber`) FROM `hubx02_users` WHERE `phoneNumber` = '06 00 00 00 01';
      */
 
@@ -194,8 +195,9 @@ class Users
         return $req->fetch(PDO::FETCH_COLUMN);
     }
 
+
     /**
-     * Met à jour le nom de l'utilisateur, l'adresse email et la date de naissance
+     * Met à jour l'adresse, le code postal et la la ville de l'utilisateur
      * @param string $address Le nom de l'utilisateur
      * @param string $zipCode Le code postal de l'utilisateur
      * @param string $city La ville de l'utilisateur
@@ -237,8 +239,8 @@ class Users
 
 
     /**
-     * Met à jour le email de l'utilisateur
-     * @param string $email Le mail de l'utilisateur
+     * Met à jour l'email de l'utilisateur
+     * @param string $email L'email de l'utilisateur
      * @param int $id L'id de l'utilisateur à modifier
      * @return bool
      */

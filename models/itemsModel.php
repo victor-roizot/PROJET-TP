@@ -102,7 +102,7 @@ class Items
         $sql = 'SELECT `i`.`id`, `hut`, `image`, SUBSTR(`description`, 1, 500) AS `description`, `name` AS `categorie`
         FROM `hubx02_items` AS `i`
         INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
-    ORDER BY `i`.`id` DESC';
+    ORDER BY `i`.`id` ASC';
         $req = $this->pdo->query($sql);
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
@@ -110,18 +110,48 @@ class Items
      * SELECT `i`.`id`, `hut`, `image`, SUBSTR(`description`, 1, 10) AS `description`, `name` AS `categorie`
      * FROM `hubx02_items` AS `i`
      * INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
-     * ORDER BY `i`.`id` DESC;
+     * ORDER BY `i`.`id` ASC;
      */
 
 
-
-
+    /**
+     * Vérifie si un item existe dans la base de données avec son hut
+     * @param string $hut le titre de l'item
+     * @return bool
+     */
     public function checkIfExists()
     {
-        $sql = 'SELECT COUNT(*) FROM `pab7o_Items` WHERE `id` = :id';
+        $sql = 'SELECT COUNT(`hut`) FROM `hubx02_Items` WHERE `hut` = :hut';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $req->bindValue(':hut', $this->hut, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
+    /** requete test dans PHP MySQL
+     * SELECT COUNT(`hut`) FROM `hubx02_Items` WHERE `hut` = cabane 'test4';
+     */
+
+
+    /**
+     * Met à jour  le titre, l'image et la description d'une item (cabane) 
+     * @param string $hut Le titre de la cabane
+     * @param string $image L'image de la cabane
+     * @param string $description La description de la cabanr
+     * @param int $id L'id de l'item à modifier
+     * @return bool
+     */
+    public function updateItem()
+    {
+        $sql = 'UPDATE `hubx02_items` SET `hut` = :hut, `image` = :image, `description` = :description, `id_categories` = :id_categories WHERE `id`= :id';
+        $req = $this->pdo->prepare($sql);
+        $req->bindValue(':hut', $this->hut, PDO::PARAM_STR);
+        $req->bindValue(':image', $this->image, PDO::PARAM_INT);
+        $req->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $req->bindValue(':id_categories', $this->id_categories, PDO::PARAM_INT);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $req->execute();
+    }
+    /** requete test dans PHP MySQL
+     * UPDATE `hubx02_items` SET `hut` = 'cabane test update2', `image` = 'image test update2', `description` = 'description test update2', `id_categories` = 1 WHERE `id`= 2;
+     */
 }
