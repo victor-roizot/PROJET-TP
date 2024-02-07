@@ -13,11 +13,11 @@ RewriteRule ^dashboard$ /controllers/users/adminController.php
 
 #ITEMS
 RewriteRule ^/ajout-item$ /controllers/items/addItemController.php
-RewriteRule ^item$ /controllers/items/itemListController.php
+RewriteRule ^list-cabanes$ /controllers/items/itemListController.php
+RewriteRule ^cabane-([0-9]+)$ /controllers/items/viewItemController.php?id=$1
 
 #ERRORS
 RewriteRule ^erreur-connexion$ /controllers/errorsController.php
 
 # PAGES
 RewriteRule ^accueil$ /index.php
-RewriteRule ^contact$ /.php

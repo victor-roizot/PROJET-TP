@@ -115,20 +115,20 @@ class Items
 
 
     /**
-     * Vérifie si un item existe dans la base de données avec son hut
-     * @param string $hut le titre de l'item
+     * Vérifie si un item existe dans la base de données avec son id
+     * @param string $id le id de l'item
      * @return bool
      */
     public function checkIfExists()
     {
-        $sql = 'SELECT COUNT(`hut`) FROM `hubx02_Items` WHERE `hut` = :hut';
+        $sql = 'SELECT COUNT(`id`) FROM `hubx02_Items` WHERE `id` = :id';
         $req = $this->pdo->prepare($sql);
-        $req->bindValue(':hut', $this->hut, PDO::PARAM_INT);
+        $req->bindValue(':id', $this->id, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch(PDO::FETCH_COLUMN);
     }
     /** requete test dans PHP MySQL
-     * SELECT COUNT(`hut`) FROM `hubx02_Items` WHERE `hut` = cabane 'test4';
+     * SELECT COUNT(`id`) FROM `hubx02_Items` WHERE `id` = 2;
      */
 
 
