@@ -1,22 +1,34 @@
 <?php
-require_once '../../models/articlesModel.php';
-require_once '../../models/articlesCategoriesModel.php';
+// Requires vues
+require_once '../../models/itemsModel.php';
+require_once '../../models/categoriesModel.php';
 require_once '../../utils/regex.php';
 require_once '../../utils/messages.php';
 require_once '../../utils/functions.php';
 
+// Démarrage de la session
 session_start();
+
+// Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
 if(empty($_SESSION['user'])) {
     header('Location: /connexion');
     exit();
 }
 
-$article = new Articles();
-$articleCategories = new ArticlesCategories();
-$categoriesList = $articleCategories->getList();
+// Récupère la classe Items (cabanes)
+$item = new Items();
 
+// Récupère la classe categories
+$categories = new categories();
+
+// Récupère la  liste de toute les catégories 
+$categoriesList = $categories->getList();
+
+// Vérification du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // a continuer
+    
     if (!empty($_POST['title'])) {
         if (preg_match($regex['title'], $_POST['title'])) {
             $article->title = clean($_POST['title']);
@@ -78,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+// Requires vues
 require_once '../../views/parts/header.php';
-require_once '../../views/articles/addArticle.php';
+require_once '../../views/items/addItem.php';
 require_once '../../views/parts/footer.php';

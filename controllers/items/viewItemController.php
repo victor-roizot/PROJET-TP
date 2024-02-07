@@ -6,7 +6,7 @@ require_once '../../models/itemsModel.php';
 // Démarrage de la session
 session_start();
 
-// Affichage de la liste de tous les Items (cabanes)
+// récupère la classe Items (cabanes)
 $item = new Items();
 
 // récupère le id  par le URL

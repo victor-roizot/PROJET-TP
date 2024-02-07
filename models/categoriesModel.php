@@ -45,10 +45,13 @@ class categories
      */
 
     
+
+     // a continuer 
+     
     /**
-     * Récupère l'information d'une catégorie dans la base de données avec son id
-     * @param int $id L'id de la catégorie qui nous permettra de récupérer l'information'
-     * @return object l'information de la catégorie
+     * Récupère la  liste de toute les catégories dans la base de données
+     * @param int $id L'id de la catégorie
+     * @return object
      */
     public function getList()
     {

@@ -8,11 +8,6 @@ require_once '../../utils/functions.php';
 // Démarrage de la session
 session_start();
 
-// Vérification si l'utilisateur est connecté
-if (!empty($_SESSION['user'])) {
-    header('Location: /');
-    exit;
-}
 
 // Vérification du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
