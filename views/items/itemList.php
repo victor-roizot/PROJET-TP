@@ -1,20 +1,17 @@
-<h1>Blog</h1>
-<div class="articlesContainer">
-    <?php foreach ($articlesList as $a) { ?>
-        <div class="article">
-            <div class="articleImage" style="background-image: url('assets/img/articles/<?= $a->image ?>')"></div>
-            <div class="articleBottom">
-                <h2><?= $a->title ?></h2>
+<h1>cabanes</h1>
+<div>
+    <?php foreach ($itemsList as $i) { ?>
+        <div>
+            <img src="assets/img/items/<?= $i->image ?>" alt="Image de la cabane">
+            <div>
+                <h2><?= $i->hut ?></h2>
                 <p>
-                    <b>Ecrit par :</b> <?= $a->username ?><br>
-                    <b>Catégorie :</b> <?= $a->category ?><br>
-                    <b>Publié :</b> <?= $a->publicationDateFr ?><br>
-                    <b>Mis à jour :</b> <?= $a->updateDateFr ?>
+                    <b>Catégorie :</b> <?= $i->categorie ?><br>
                 </p>
                 <p>
-                    <?= strip_tags($a->content) ?>...
+                    <?= strip_tags($i->description) ?>...
                 </p>
-                <a href="/article-<?= $a->id ?>" class="cta">Lire la suite</a>
+                <a class=lien href="/cabane-<?= $i->id ?>">Lire la suite</a>
             </div>
         </div>
     <?php } ?>

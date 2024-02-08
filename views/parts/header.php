@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
-<!-- chargement de tinymce pour les ajouts commentaires et items 
+    <!-- chargement de tinymce pour les ajouts commentaires et items 
     <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -28,8 +28,9 @@
         </div>
         <ul>
             <li><a href="/accueil" class=lien>Accueil</a></li>
+            <li><a href="/list-cabane" class=lien>Cabanes</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
-                <li><a href="/inscription" class=lien>inscription</a></li>
+                <li><a href="/inscription" class=lien>Inscription</a></li>
                 <li><a href="/connexion" class=lien>Connexion</a></li>
             <?php } else { ?>
                 <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
