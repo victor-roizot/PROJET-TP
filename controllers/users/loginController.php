@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errors)) {
         // Vérification que l'email et le mot de passe correspondent à ceux stockés dans le tableau. S'il y a une erreur, je ne précise pas si c'est l'email ou le mot de passe qui est incorrect.
         if (!password_verify($password, $user->password)) {
-            $errors['email'] = $errors['password'] = USERS_LOGIN_ERROR;
+            $errors['emailLogin'] = $errors['password'] = USERS_LOGIN_ERROR;
         } else {
             // Si ma case "Se souvenir de moi" est cochée, je crée un cookie qui contient l'email et le mot de passe de l'utilisateur. Le cookie sera valable 60 secondes et accessible depuis tout le site.
             if (isset($_POST['remember'])) {

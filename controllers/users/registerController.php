@@ -11,14 +11,20 @@ session_start();
 
 // Vérification du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Récupère la classe Users
     $user = new Users();
+
     //Je vérifie que les champs ne sont pas vides
     if (!empty($_POST['lastname'])) {
+
         //Je vérifie que lastname est valide
         if (preg_match($regex['name'], $_POST['lastname'])) {
+
             // Et je le stocke dans une variable
             $user->lastname = clean($_POST['lastname']);
         } else {
+            
             // Sinon, je remplis mon tableau d'erreurs
             $errors['lastname'] = USERS_LASTNAME_ERROR_INVALID;
         }

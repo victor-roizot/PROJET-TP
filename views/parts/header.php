@@ -15,7 +15,7 @@
     <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#content'
+            selector: '#description'
         });
     </script>
 </head>

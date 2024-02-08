@@ -10,7 +10,7 @@ require_once '../../utils/functions.php';
 session_start();
 
 // Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
-if(empty($_SESSION['user'])) {
+if (empty($_SESSION['user'])) {
     header('Location: /connexion');
     exit();
 }
@@ -27,66 +27,83 @@ $categoriesList = $categories->getList();
 // Vérification du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // a continuer
-    
-    if (!empty($_POST['title'])) {
-        if (preg_match($regex['title'], $_POST['title'])) {
-            $article->title = clean($_POST['title']);
+    //Je vérifie que les champs ne sont pas vides
+    if (!empty($_POST['hut'])) {
+
+        //Je vérifie que hut est valide
+        if (preg_match($regex['hut'], $_POST['hut'])) {
+
+            // Et je le stocke dans une variable
+            $item->hut = clean($_POST['hut']);
         } else {
-            $errors['title'] = ARTICLE_TITLE_ERROR_INVALID;
+
+            // Sinon, je remplis mon tableau d'erreurs
+            $errors['hut'] = ITEM_TITLE_ERROR_INVALID;
         }
     } else {
-        $errors['title'] = ARTICLE_TITLE_ERROR_EMPTY;
+        $errors['hut'] = ITEM_TITLE_ERROR_EMPTY;
     }
 
-    if (!empty($_POST['content'])) {
-        if (!preg_match($regex['content'], $_POST['content'])) {
-            $article->content = trim($_POST['content']);
-        } else {
-            $errors['content'] = ARTICLE_CONTENT_ERROR_INVALID;
-        }
-    } else {
-        $errors['content'] = ARTICLE_CONTENT_ERROR_EMPTY;
-    }
 
+    //Je vérifie pour tous les autres champs de la même manière.
     if (!empty($_FILES['image'])) {
         $imageMessage = checkImage($_FILES['image']);
 
         if ($imageMessage != '') {
             $errors['image'] = $imageMessage;
         } else {
-            $article->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
-            while(file_exists('../../assets/img/articles/' . $article->image)) {
-                $article->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            // Je fais une boucle pour vérifier que  le fichier existe pas
+            while (file_exists('../../assets/img/items/' . $item->image)) {
+
+                // Sinon il reçoit un id unique
+                $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             }
         }
     }
 
-    if (!empty($_POST['categories'])) {
-        $articleCategories->id = $_POST['categories'];
-        if ($articleCategories->checkIfExistsById() == 1) {
-            $article->id_articlesCategories = clean($_POST['categories']);
+
+    if (!empty($_POST['description'])) {
+        if (!preg_match($regex['description'], $_POST['description'])) {
+            $item->description = trim($_POST['description']);
         } else {
-            $errors['categories'] = ARTICLE_CATEGORIES_ERROR_INVALID;
+            $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
         }
     } else {
-        $errors['categories'] = ARTICLE_CATEGORIES_ERROR_EMPTY;
+        $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
     }
 
-    if(empty($errors)) {
-        $article->id_users = $_SESSION['user']['id'];
-        if(move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/articles/' . $article->image)) {
-            if($article->create()){
-                $success = ARTICLE_ADD_SUCCESS;
+
+    if (!empty($_POST['categories'])) {
+        $categories->id = $_POST['categories'];
+        if ($categories->checkIfExistsById() == 1) {
+            $item->id_categories = clean($_POST['categories']);
+        } else {
+            $errors['categories'] = CATEGORIES_ERROR_INVALID;
+        }
+    } else {
+        $errors['categories'] = CATEGORIES_ERROR_EMPTY;
+    }
+
+    // Si je n'ai aucune erreur
+    if (empty($errors)) {
+
+        // Si l'image s'enregistre
+        if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
+
+            // Je crée la cabane et un message de succès.
+            if ($item->create()) {
+                $success = ITEM_ADD_SUCCESS;
             } else {
-                unlink('../../assets/img/articles/' . $article->image);
-                $errors['add'] = ARTICLE_ADD_ERROR;
+
+                // Sinon je supprime l'image avec des messages d'erreur
+                unlink('../../assets/img/items/' . $item->image);
+                $errors['add'] = ITEM_ADD_ERROR;
             }
         } else {
-            $errors['add'] = ARTICLE_ADD_ERROR;
+            $errors['item add'] = ITEM_ADD_ERROR;
         }
-
     }
 }
 

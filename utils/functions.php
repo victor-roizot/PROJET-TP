@@ -37,18 +37,18 @@ function checkImage($image)
                 $imgExtension = pathinfo($image['name'], PATHINFO_EXTENSION);
 
                 if (!array_key_exists($imgExtension, $extensionArray) || mime_content_type($image['tmp_name']) != $extensionArray[$imgExtension]) {
-                    $errors['image'] = ARTICLE_IMAGE_ERROR_EXTENSION;
+                    $errors['image'] = ITEM_IMAGE_ERROR_EXTENSION;
                 }
                 // Sinon, je remplis mon tableau d'erreurs
             } else {
 
-                $errors['image'] = ARTICLE_IMAGE_ERROR;
+                $errors['image'] = ITEM_IMAGE_ERROR;
             }
         } else {
-            $errors['image'] = ARTICLE_IMAGE_ERROR_SIZE;
+            $errors['image'] = ITEM_IMAGE_ERROR_SIZE;
         }
     } else {
-        $errors['image'] = ARTICLE_IMAGE_ERROR_EMPTY;
+        $errors['image'] = ITEM_IMAGE_ERROR_EMPTY;
     }
 
     return $errors['image'];

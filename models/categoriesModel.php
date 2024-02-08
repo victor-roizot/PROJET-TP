@@ -45,9 +45,6 @@ class categories
      */
 
     
-
-     // a continuer 
-     
     /**
      * Récupère la  liste de toute les catégories dans la base de données
      * @param int $id L'id de la catégorie
