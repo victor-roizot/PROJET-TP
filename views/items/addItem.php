@@ -1,22 +1,22 @@
 <?php if(isset($success)) { ?>
-    <p class="successContainer"><?= $success ?></p>
-<?php } else if(isset($errors['add'])){ ?>
-    <p class="errorsContainer"><?= $errors['add'] ?></p>
+    <p><?= $success ?></p>
+<?php } else if(isset($errors['itemAdd'])){ ?>
+    <p><?= $errors['itemAdd'] ?></p>
 <?php } ?>
 
-<div class="formContainer">
-    <form action="/ajout-article" method="POST" enctype="multipart/form-data">
-        <h1>Écrire un article</h1>
-        <label for="title">Titre</label>
-        <input type="text" name="title" id="title">
-        <?php if (isset($errors['title'])) { ?>
-            <p class="errorsMessage"><?= $errors['title'] ?></p>
+<div>
+    <form action="/ajout-item" method="POST" enctype="multipart/form-data">
+        <h1>Ajouter une cabane</h1>
+        <label for="hut">Titre</label>
+        <input type="text" name="hut" id="hut">
+        <?php if (isset($errors['hut'])) { ?>
+            <p><?= $errors['hut'] ?></p>
         <?php } ?>
 
-        <label for="image">Image d'illustration</label>
+        <label for="image">Image de la cabane</label>
         <input type="file" name="image" id="image">
         <?php if (isset($errors['image'])) { ?>
-            <p class="errorsMessage"><?= $errors['image'] ?></p>
+            <p><?= $errors['image'] ?></p>
         <?php } ?>
 
         <label for="categories">Catégorie</label>
@@ -27,13 +27,13 @@
             <?php } ?>
         </select>
         <?php if (isset($errors['categories'])) { ?>
-            <p class="errorsMessage"><?= $errors['categories'] ?></p>
+            <p><?= $errors['categories'] ?></p>
         <?php } ?>
 
-        <label for="content">Contenu</label>
-        <textarea name="content" id="content"></textarea>
-        <?php if (isset($errors['content'])) { ?>
-            <p class="errorsMessage"><?= $errors['content'] ?></p>
+        <label for="description">Description de la cabane</label>
+        <textarea name="description" id="description"></textarea>
+        <?php if (isset($errors['description'])) { ?>
+            <p><?= $errors['description'] ?></p>
         <?php } ?>
 
         <input type="submit" value="Créer">

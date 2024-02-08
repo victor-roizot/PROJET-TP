@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
-<!-- chargement de tinymce pour les ajouts commentaires et items -->
+<!-- chargement de tinymce pour les ajouts commentaires et items 
     <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: '#description'
         });
-    </script>
+    </script> -->
 </head>
 
 <body>

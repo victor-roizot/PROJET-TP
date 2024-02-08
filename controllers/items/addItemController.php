@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['description'])) {
         if (!preg_match($regex['description'], $_POST['description'])) {
-            $item->description = trim($_POST['description']);
+            $item->description = clean($_POST['description']);
         } else {
             $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
         }
@@ -99,10 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Sinon je supprime l'image avec des messages d'erreur
                 unlink('../../assets/img/items/' . $item->image);
-                $errors['add'] = ITEM_ADD_ERROR;
+                $errors['itemAdd'] = ITEM_ADD_ERROR;
             }
         } else {
-            $errors['item add'] = ITEM_ADD_ERROR;
+            $errors['itemAdd'] = ITEM_ADD_ERROR;
         }
     }
 }
