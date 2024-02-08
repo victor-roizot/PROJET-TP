@@ -1,3 +1,4 @@
+<!-- L'utilisateur administrateur créera les cabanes a loué par ce formulaire -->
 <?php if(isset($success)) { ?>
     <p><?= $success ?></p>
 <?php } else if(isset($errors['itemAdd'])){ ?>
