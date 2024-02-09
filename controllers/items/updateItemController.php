@@ -19,8 +19,7 @@ if (!isset($_SESSION['user'])) {
 $item = new Items();
 
 // récupère le id  par le URL
-// NE FONCTIONE PAS !!!!!!
-//$item->id = $_GET['id'];
+$item->id = $_GET['id'];
 
 // vérifie s'il existe sinon renvoie vers les cabanes
 if ($item->checkIfExists() == 0) {

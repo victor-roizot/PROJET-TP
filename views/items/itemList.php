@@ -22,7 +22,7 @@
                     </p>
 
                     <!-- Lien vers la page détaillée de la cabane -->
-                    <a class=lien href="/cabane-<?= $i->id ?>">Lire la suite</a>
+                    <a class=lien href="/modifier-item-<?= $i->id ?>">Lire la suite</a>
                 </div>
             </div>
         <?php } ?>
