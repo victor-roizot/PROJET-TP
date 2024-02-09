@@ -1,4 +1,4 @@
-<!-- L'utilisateur pourra voir la liste les cabanes à louer -->*
+<!-- L'utilisateur pourra voir la liste les cabanes à louer -->
 <section>
     <h1>cabanes</h1>
     <div>

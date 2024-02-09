@@ -18,7 +18,15 @@ if (!isset($_SESSION['user'])) {
 // Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
 $item = new Items();
 
+// récupère le id  par le URL
+// NE FONCTIONE PAS !!!!!!
+//$item->id = $_GET['id'];
 
+// vérifie s'il existe sinon renvoie vers les cabanes
+if ($item->checkIfExists() == 0) {
+    header('Location: /list-cabanes');
+    exit;
+}
 
 // Récupère les informations du item par son id
 $itemDetails = $item->getById();
@@ -33,64 +41,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // UPDATE ITEM
     if (isset($_POST['updateItem'])) {
 
-    //Je vérifie que les champs ne sont pas vides
-    if (!empty($_POST['hut'])) {
+        //Je vérifie que les champs ne sont pas vides
+        if (!empty($_POST['hut'])) {
 
-        //Je vérifie que hut est valide
-        if (preg_match($regex['hut'], $_POST['hut'])) {
+            //Je vérifie que hut est valide
+            if (preg_match($regex['hut'], $_POST['hut'])) {
 
-            // Et je le stocke dans une variable
-            $item->hut = clean($_POST['hut']);
+                // Et je le stocke dans une variable
+                $item->hut = clean($_POST['hut']);
+            } else {
+
+                // Sinon, je remplis mon tableau d'erreurs
+                $errors['hut'] = ITEM_TITLE_ERROR_INVALID;
+            }
         } else {
-
-            // Sinon, je remplis mon tableau d'erreurs
-            $errors['hut'] = ITEM_TITLE_ERROR_INVALID;
+            $errors['hut'] = ITEM_TITLE_ERROR_EMPTY;
         }
-    } else {
-        $errors['hut'] = ITEM_TITLE_ERROR_EMPTY;
-    }
 
 
-    //Je vérifie pour tous les autres champs de la même manière.
-    if (!empty($_FILES['image'])) {
-        $imageMessage = checkImage($_FILES['image']);
+        //Je vérifie pour tous les autres champs de la même manière.
+        if (!empty($_FILES['image'])) {
+            $imageMessage = checkImage($_FILES['image']);
 
-        if ($imageMessage != '') {
-            $errors['image'] = $imageMessage;
-        } else {
-            $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-            // Je fais une boucle pour vérifier que  le fichier existe pas
-            while (file_exists('../../assets/img/items/' . $item->image)) {
-
-                // Sinon il reçoit un id unique
+            if ($imageMessage != '') {
+                $errors['image'] = $imageMessage;
+            } else {
                 $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+                // Je fais une boucle pour vérifier que  le fichier existe pas
+                while (file_exists('../../assets/img/items/' . $item->image)) {
+
+                    // Sinon il reçoit un id unique
+                    $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                }
             }
         }
-    }
 
-    
-    if (!empty($_POST['description'])) {
-        if (!preg_match($regex['description'], $_POST['description'])) {
-            $item->description = clean($_POST['description']);
+
+        if (!empty($_POST['description'])) {
+            if (!preg_match($regex['description'], $_POST['description'])) {
+                $item->description = clean($_POST['description']);
+            } else {
+                $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
+            }
         } else {
-            $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
+            $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
         }
-    } else {
-        $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
-    }
 
 
-    if (!empty($_POST['categories'])) {
-        $categories->id = $_POST['categories'];
-        if ($categories->checkIfExistsById() == 1) {
-            $item->id_categories = clean($_POST['categories']);
+        if (!empty($_POST['categories'])) {
+            $categories->id = $_POST['categories'];
+            if ($categories->checkIfExistsById() == 1) {
+                $item->id_categories = clean($_POST['categories']);
+            } else {
+                $errors['categories'] = CATEGORIES_ERROR_INVALID;
+            }
         } else {
-            $errors['categories'] = CATEGORIES_ERROR_INVALID;
+            $errors['categories'] = CATEGORIES_ERROR_EMPTY;
         }
-    } else {
-        $errors['categories'] = CATEGORIES_ERROR_EMPTY;
-    }
 
         // Si je n'ai aucune erreur
         if (empty($errors)) {
