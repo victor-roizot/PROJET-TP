@@ -77,7 +77,7 @@
         <p><?= $errors['updatePassword'] ?></p>
     <?php } ?>
 
-    <div class="formContainer">
+    <div>
 
         <form action="/modifier-mon-compte" method="POST">
             <h2>Modifier mon mot de passe</h2>
@@ -99,7 +99,7 @@
     </div>
 
     <!-- DELETE ACCOUNT -->
-    <div class="formContainer">
+    <div>
         <h2>Supprimer mon compte</h2>
 
         <button id="openModalBtn">Supprimer</button>

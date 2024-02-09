@@ -23,7 +23,7 @@ class Items
         } catch (PDOException $e) {
             header('Location: /erreur-connexion');
             exit;
-        }
+        } $this->id = 0;
     }
 
 
@@ -145,7 +145,7 @@ class Items
         $sql = 'UPDATE `hubx02_items` SET `hut` = :hut, `image` = :image, `description` = :description, `id_categories` = :id_categories WHERE `id`= :id';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':hut', $this->hut, PDO::PARAM_STR);
-        $req->bindValue(':image', $this->image, PDO::PARAM_INT);
+        $req->bindValue(':image', $this->image, PDO::PARAM_STR);
         $req->bindValue(':description', $this->description, PDO::PARAM_STR);
         $req->bindValue(':id_categories', $this->id_categories, PDO::PARAM_INT);
         $req->bindValue(':id', $this->id, PDO::PARAM_INT);

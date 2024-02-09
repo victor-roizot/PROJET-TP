@@ -79,6 +79,10 @@ define('ITEM_DESCRIPTION_ERROR_INVALID', 'Le contenu est invalide. Il ne peut pa
 define('CATEGORIES_ERROR_EMPTY', 'La catégorie est requise');
 define('CATEGORIES_ERROR_INVALID', 'La catégorie est invalide');
 
-// itemAdd
+// addItem
 define('ITEM_ADD_SUCCESS', 'La cabane a bien été ajouté');
 define('ITEM_ADD_ERROR', 'Une erreur est survenue lors de l\'ajout de la cabane');
+
+// updateItem
+define('ITEM_UPDATE_SUCCESS', 'Votre cabane a bien été mis à jour');
+define('ITEM_UPDATE_ERROR', 'Une erreur est survenue lors de la mise à jour de votre cabane');

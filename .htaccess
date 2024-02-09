@@ -15,6 +15,7 @@ RewriteRule ^dashboard$ /controllers/users/adminController.php
 RewriteRule ^ajout-item$ /controllers/items/addItemController.php
 RewriteRule ^list-cabane$ /controllers/items/itemListController.php
 RewriteRule ^cabane-([0-9]+)$ /controllers/items/viewItemController.php?id=$1
+RewriteRule ^modifier-item$ /controllers/items/updateItemController.php
 
 #ERRORS
 RewriteRule ^erreur-connexion$ /controllers/errorsController.php

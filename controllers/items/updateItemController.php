@@ -9,23 +9,29 @@ require_once '../../utils/functions.php';
 // Démarrage de la session
 session_start();
 
-// Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
-if (empty($_SESSION['user'])) {
+// Vérification si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
     header('Location: /connexion');
-    exit();
+    exit;
 }
 
-// Récupère la classe Items (cabanes)
+// Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
 $item = new Items();
 
-// Récupère la classe categories
-$categories = new categories();
 
+
+// Récupère les informations du item par son id
+$itemDetails = $item->getById();
+
+// NE FONCTIONE PAS !!!!!!
 // Récupère la  liste de toute les catégories 
-$categoriesList = $categories->getList();
+//$categoriesList = $categories->getList();
 
 // Vérification du formulaire en post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // UPDATE ITEM
+    if (isset($_POST['updateItem'])) {
 
     //Je vérifie que les champs ne sont pas vides
     if (!empty($_POST['hut'])) {
@@ -63,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-
+    
     if (!empty($_POST['description'])) {
         if (!preg_match($regex['description'], $_POST['description'])) {
             $item->description = clean($_POST['description']);
@@ -86,28 +92,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['categories'] = CATEGORIES_ERROR_EMPTY;
     }
 
-    // Si je n'ai aucune erreur
-    if (empty($errors)) {
+        // Si je n'ai aucune erreur
+        if (empty($errors)) {
 
-        // Si l'image s'enregistre
-        if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
-
-            // Je crée la cabane et un message de succès.
-            if ($item->create()) {
-                $success = ITEM_ADD_SUCCESS;
+            // Je modifie l'item et un message de succès.
+            if ($item->updateItem()) {
+                $success = ITEM_UPDATE_SUCCESS;
             } else {
-
-                // Sinon je supprime l'image avec des messages d'erreur
-                unlink('../../assets/img/items/' . $item->image);
-                $errors['addItem'] = ITEM_ADD_ERROR;
+                $errors['updateItem'] = ITEM_UPDATE_ERROR;
             }
-        } else {
-            $errors['addItem'] = ITEM_ADD_ERROR;
         }
     }
 }
 
+
+/**
+ * Je supprime l'item
+ * Je redirige l'administrateur vers la page des listes items header('Location: /connexion')
+ * Je termine le script avec exit
+ */
+if (isset($_POST['deleteItem'])) {
+    if ($item->delete()) {
+        header('Location: /list-cabane');
+        exit;
+    }
+}
+
+
 // Requires vues
 require_once '../../views/parts/header.php';
-require_once '../../views/items/addItem.php';
+require_once '../../views/items/updateItem.php';
 require_once '../../views/parts/footer.php';

@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     color: black;
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -139,6 +140,8 @@ body main {
     justify-content: center;
     align-items: center;
     padding: 0 4%;
+
+
 }
 
 body main section {
