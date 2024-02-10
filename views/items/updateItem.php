@@ -12,7 +12,7 @@
         <p><?= $errors['updateItem'] ?></p>
     <?php } ?>
     <div>
-        <form action="/modifier-item" method="post" enctype="multipart/form-data">
+        <form action="/modifier-item-" method="post" enctype="multipart/form-data">
 
             <label for="image">Image de la cabane</label>
             <input type="file" name="image" id="image" value="<?= $itemDetails->image ?>">
@@ -26,47 +26,45 @@
                 <p><?= $errors['hut'] ?></p>
             <?php } ?>
 
-
             <label for="categories">Catégorie de la cabane</label>
-
-
             <select name="categories" id="categories">
                 <option selected disabled>Choisissez une catégorie</option>
                 <?php foreach ($categoriesList as $c) { ?>
                     <option value="<?= $c->id ?>"><?= $c->name ?></option>
                 <?php } ?>
-            
-            <?php if (isset($errors['categories'])) { ?>
-                <p><?= $errors['categories'] ?></p>
-            <?php } ?>
+                <?php if (isset($errors['categories'])) { ?>
+                    <p><?= $errors['categories'] ?></p>
+                <?php } ?>
 
-            <label for="description">Description de la cabane</label>
-            <textarea name="description" id="description">value="<?= $itemDetails->description ?>"</textarea>
-            <?php if (isset($errors['description'])) { ?>
-                <p><?= $errors['description'] ?></p>
-            <?php } ?>
+                <label for="description">Description de la cabane</label>
+                <textarea name="description" id="description"></textarea>
+                <?php if (isset($errors['description'])) { ?>
+                    <p><?= $errors['description'] ?></p>
+                <?php } ?>
 
-            <input type="submit" value="Modifier" name="updateItem">
+                <input type="submit" value="Modifier" name="updateItem">
         </form>
     </div>
-
+    
+    <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
         <!-- DELETE ITEM -->
         <div>
-        <h2>Supprimer la cabane</h2>
+            <h2>Supprimer la cabane</h2>
 
-        <button id="openModalBtn">Supprimer</button>
-    </div>
-
-
-    <!-- MODAL CONFIRMED DELETE ITEM -->
-    <div id="modalContainer">
-        <div id="modal">
-            <span id="closeBtn">&times;</span>
-            <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
-            <form action="/modifier-item" method="POST">
-                <button type="submit" name="delete">Supprimer</button>
-            </form>
+            <button id="openModalBtn">Supprimer</button>
         </div>
-    </div>
+
+
+        <!-- MODAL CONFIRMED DELETE ITEM -->
+        <div id="modalContainer">
+            <div id="modal">
+                <span id="closeBtn">&times;</span>
+                <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
+                <form action="/modifier-item" method="POST">
+                    <button type="submit" name="delete">Supprimer</button>
+                </form>
+            </div>
+        </div>
+    <?php } ?>
 
 </section>

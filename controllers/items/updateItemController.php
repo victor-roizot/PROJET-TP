@@ -2,6 +2,7 @@
 // Requires vues
 require_once '../../models/itemsModel.php';
 require_once '../../models/categoriesModel.php';
+require_once '../../models/usersModel.php';
 require_once '../../utils/regex.php';
 require_once '../../utils/messages.php';
 require_once '../../utils/functions.php';
@@ -15,11 +16,22 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-// Vérification si l'utilisateur est connecté sinon renvoie vers la connexion
+// Vérification si la exite sinon renvoie vers la liste des cabane
 $item = new Items();
+
+// Récupère la classe categories
+$categories = new categories();
+
+// Récupère la classe utilisateur
+$user = new Users;
+
+// récupère le id de l'utilisateur par session
+$user->id = $_SESSION['user']['id'];
 
 // récupère le id  par le URL
 $item->id = $_GET['id'];
+
+
 
 // vérifie s'il existe sinon renvoie vers les cabanes
 if ($item->checkIfExists() == 0) {
@@ -30,9 +42,11 @@ if ($item->checkIfExists() == 0) {
 // Récupère les informations du item par son id
 $itemDetails = $item->getById();
 
-// NE FONCTIONE PAS !!!!!!
+// Récupère les informations de l'utilisateur par son id
+$userAccount = $user->getById();
+
 // Récupère la  liste de toute les catégories 
-//$categoriesList = $categories->getList();
+$categoriesList = $categories->getList();
 
 // Vérification du formulaire en post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
