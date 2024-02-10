@@ -18,6 +18,6 @@
             <?= strip_tags($itemDetails->description) ?>
         </p>
 
-        <a class=lien  href="/modifier-item">modifier ma cabane</a>
+        <a class=lien  href="/modifier-item-">modifier ma cabane</a>
     </div>
 </section>

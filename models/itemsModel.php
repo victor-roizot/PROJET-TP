@@ -23,7 +23,7 @@ class Items
         } catch (PDOException $e) {
             header('Location: /erreur-connexion');
             exit;
-        } $this->id = 0;
+        }
     }
 
 
