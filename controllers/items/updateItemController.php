@@ -101,17 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
 
-        if (!empty($_POST['description'])) {
-            if (!preg_match($regex['description'], $_POST['description'])) {
-                $item->description = clean($_POST['description']);
-            } else {
-                $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
-            }
-        } else {
-            $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
-        }
-
-
         if (!empty($_POST['categories'])) {
             $categories->id = $_POST['categories'];
             if ($categories->checkIfExistsById() == 1) {
@@ -123,6 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['categories'] = CATEGORIES_ERROR_EMPTY;
         }
 
+
+        if (!empty($_POST['description'])) {
+            if (!preg_match($regex['description'], $_POST['description'])) {
+                $item->description = clean($_POST['description']);
+            } else {
+                $errors['description'] = ITEM_DESCRIPTION_ERROR_INVALID;
+            }
+        } else {
+            $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
+        }
+
+        
         // Si je n'ai aucune erreur
         if (empty($errors)) {
 

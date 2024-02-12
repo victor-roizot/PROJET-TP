@@ -36,6 +36,7 @@
                     <p><?= $errors['categories'] ?></p>
                 <?php } ?>
 
+
                 <label for="description">Description de la cabane</label>
                 <textarea name="description" id="description"></textarea>
                 <?php if (isset($errors['description'])) { ?>
