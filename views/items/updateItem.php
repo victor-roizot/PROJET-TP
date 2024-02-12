@@ -12,7 +12,7 @@
         <p><?= $errors['updateItem'] ?></p>
     <?php } ?>
     <div>
-        <form action="/modifier-item-" method="post" enctype="multipart/form-data">
+        <form action="/modifier-item-<?= $item->id ?>" method="post" enctype="multipart/form-data">
 
             <label for="image">Image de la cabane</label>
             <input type="file" name="image" id="image" value="<?= $itemDetails->image ?>">
@@ -60,7 +60,7 @@
             <div id="modal">
                 <span id="closeBtn">&times;</span>
                 <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
-                <form action="/modifier-item" method="POST">
+                <form action="/modifier-item-<?= $item->id ?>" method="POST">
                     <button type="submit" name="delete">Supprimer</button>
                 </form>
             </div>

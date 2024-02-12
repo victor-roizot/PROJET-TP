@@ -16,6 +16,16 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
+/**
+ * Ici je contrôle que l'utilisateur a le bon rôle pour accéder à la page car seul les administrateurs peuvent y accéder.
+ * J'utilise la variable $_SESSION['user']['role'] qui a été créée lors de la connexion.
+ * S'il n'a pas accès à cette page, je renvoie l'utilisateur vers sa page de profil.
+ */
+if ($_SESSION['user']['id_usersRoles'] != 255) {
+    header('Location: /list-cabane');
+    exit;
+}
+
 // Vérification si la exite sinon renvoie vers la liste des cabane
 $item = new Items();
 
@@ -116,29 +126,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Si je n'ai aucune erreur
         if (empty($errors)) {
 
-            // Je modifie l'item et un message de succès.
-            if ($item->updateItem()) {
-                $success = ITEM_UPDATE_SUCCESS;
+            // Si l'image s'enregistre
+            if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
+
+                // Je crée la cabane et un message de succès.
+                if ($item->updateItem()) {
+                    unlink('../../assets/img/items/' . $itemDetails->image);
+                    $success = ITEM_UPDATE_SUCCESS;
+                } else {
+
+                    // Sinon je supprime l'image avec des messages d'erreur
+                    unlink('../../assets/img/items/' . $item->image);
+                    $errors['updateItem'] = ITEM_UPDATE_ERROR;
+                }
             } else {
                 $errors['updateItem'] = ITEM_UPDATE_ERROR;
             }
         }
     }
 }
-
+var_dump($errors);
 
 /**
  * Je supprime l'item
  * Je redirige l'administrateur vers la page des listes items header('Location: /connexion')
  * Je termine le script avec exit
  */
-if (isset($_POST['deleteItem'])) {
+if (isset($_POST['delete'])) {
     if ($item->delete()) {
+        unlink('../../assets/img/items/' . $itemDetails->image);
         header('Location: /list-cabane');
         exit;
     }
 }
-
+var_dump($_POST);
+// Recharge les informations du item par son id
+$itemDetails = $item->getById();
 
 // Requires vues
 require_once '../../views/parts/header.php';

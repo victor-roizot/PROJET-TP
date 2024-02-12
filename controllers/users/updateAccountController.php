@@ -16,8 +16,6 @@ if (!isset($_SESSION['user'])) {
 // Affichage du profil des utilisateurs
 $user = new Users;
 $user->id = $_SESSION['user']['id'];
-// Récupère les informations de l'utilisateur par son id
-$userAccount = $user->getById();
 
 // Vérification du formulaire en post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -77,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-
+    
     // UPDATE PHONENUMBER
     // Je répète  les mêmes étapes pour chaque champs
     if (isset($_POST['phoneNumber'])) {
@@ -94,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $errors['phoneNumber'] = USERS_PHONENUMBER_ERROR_EMPTY;
         }
-
+        
         if (empty($errors)) {
             if ($user->updatephoneNumber()) {
                 $_SESSION['user']['phoneNumber'] = $user->phoneNumber;
@@ -108,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // UPDATE EMAIL
     if (isset($_POST['email'])) {
-
+        
         if (!empty($_POST['email'])) {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $user->email = clean($_POST['email']);
@@ -135,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // UPDATE PASSWORD
     if (isset($_POST['updatePassword'])) {
-
+        
         if (!empty($_POST['password'])) {
             if (preg_match($regex['password'], $_POST['password'])) {
                 if (!empty($_POST['password_confirm'])) {
@@ -153,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $errors['password'] = USERS_PASSWORD_ERROR_EMPTY;
         }
-
+        
         if (empty($errors)) {
             if ($user->updatePassword()) {
                 $success = USERS_PASSWORD_UPDATE_SUCCESS;
@@ -181,6 +179,9 @@ if (isset($_POST['deleteAccount'])) {
 }
 
 //Les 3 require des vues ou parties de vue sont inséparables et toujours à la fin parce que c'est l'affichage du résultat final des actions du contrôleur
+
+// Récupère les informations de l'utilisateur par son id
+$userAccount = $user->getById();
 
 require_once '../../views/parts/header.php';
 require_once '../../views/users/updateAccount.php';

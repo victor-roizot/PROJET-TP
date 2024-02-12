@@ -18,6 +18,12 @@
             <?= strip_tags($itemDetails->description) ?>
         </p>
 
-        <a class=lien  href="/modifier-item-">modifier ma cabane</a>
+
+<?php 
+
+if($_SESSION['user']['id_usersRoles'] == 255){ ?>
+
+<a class=lien href="/modifier-item-<?= $item->id ?>">modifier ma cabane</a>
+<?php } ?> 
     </div>
 </section>
