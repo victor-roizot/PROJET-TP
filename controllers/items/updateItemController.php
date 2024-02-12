@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
-var_dump($errors);
+
 
 /**
  * Je supprime l'item
@@ -159,7 +159,8 @@ if (isset($_POST['delete'])) {
         exit;
     }
 }
-var_dump($_POST);
+
+
 // Recharge les informations du item par son id
 $itemDetails = $item->getById();
 
