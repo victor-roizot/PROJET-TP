@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackwoob</title>
-    <link rel="shortcut icon" href="../../assets/img/_e7ee94ed-7b05-44d4-8dbe-fafed355417b.jpg">
+    <title>Cabin Escapes</title>
+    <link rel="shortcut icon" href="../../assets/img/logo_cabin_escapes.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
 <body>
     <nav>
         <div>
-            <a href="/accueil"><img id="logo" src="../../assets/img/_e7ee94ed-7b05-44d4-8dbe-fafed355417b.jpg" alt="Logo"></a>
-            <h1 id="name"> Blackwoob</h1>
+            <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
+
         </div>
         <ul>
             <li><a href="/accueil" class=lien>Accueil</a></li>
@@ -42,4 +42,4 @@
             <?php } ?>
         </ul>
     </nav>
-    <main class="container">
+    <main>

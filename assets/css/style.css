@@ -4,12 +4,15 @@
 
 body {
     min-height: 100vh;
-    background-color:#ede6b9 ;
+    background-image: url(../img/background_site.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
-    color: black;
+    color: white;
+    font-size: x-large;
     overflow-x: hidden;
 }
 
@@ -19,7 +22,7 @@ nav {
     justify-content: space-between;
     background-color: transparent;
     backdrop-filter: blur(10px);
-    padding: 0 1rem;
+    padding: 0 1.5rem;
 }
 
 nav div {
@@ -29,15 +32,9 @@ nav div {
     padding: 0;
 }
 
-
-
 #logo {
-    width: 200px;
-}
-#name {
-    font-size: 36px;
-    font-weight: 600;
-    padding: 0px 25px;
+    width: 150px;
+
 }
 
 nav ul {
@@ -50,25 +47,25 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    padding: 35px 50px;
+    padding: 20px 40px;
 }
 
 .lien {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 600;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 nav ul li a:hover {
-    color: blue;
+    color: black;
 }
 
 nav ul li a::after {
-    background-color: red;
+    background-color: black;
     content: "";
     display: block;
-    height: 2px;
+    height: 3px;
     width: 0%;
     transition: 0.5s;
 }
@@ -146,7 +143,6 @@ body main {
 
 body main section {
     width: 80%;
-    background-color: green;
     padding: 1rem;
 }
 
