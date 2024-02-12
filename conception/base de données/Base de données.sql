@@ -88,7 +88,6 @@ CREATE TABLE HuBX02_reservations(
         startingDate    Date NOT NULL ,
         endingDate      Date NOT NULL ,
         personsNumber   Int NOT NULL ,
-        daysNumber      Int NOT NULL ,
         lunch           Bool NOT NULL ,
         `condition`       Bool NOT NULL ,
         id_items Int NOT NULL ,

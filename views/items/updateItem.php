@@ -45,26 +45,25 @@
                 <input type="submit" value="Modifier" name="updateItem">
         </form>
     </div>
-    
-    <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-        <!-- DELETE ITEM -->
-        <div>
-            <h2>Supprimer la cabane</h2>
 
-            <button id="openModalBtn">Supprimer</button>
+
+    <!-- DELETE ITEM -->
+    <div>
+        <h2>Supprimer la cabane</h2>
+
+        <button id="openModalBtn">Supprimer</button>
+    </div>
+
+
+    <!-- MODAL CONFIRMED DELETE ITEM -->
+    <div id="modalContainer">
+        <div id="modal">
+            <span id="closeBtn">&times;</span>
+            <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
+            <form action="/modifier-item-<?= $item->id ?>" method="POST">
+                <button type="submit" name="delete">Supprimer</button>
+            </form>
         </div>
-
-
-        <!-- MODAL CONFIRMED DELETE ITEM -->
-        <div id="modalContainer">
-            <div id="modal">
-                <span id="closeBtn">&times;</span>
-                <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
-                <form action="/modifier-item-<?= $item->id ?>" method="POST">
-                    <button type="submit" name="delete">Supprimer</button>
-                </form>
-            </div>
-        </div>
-    <?php } ?>
+    </div>
 
 </section>
