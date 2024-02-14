@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     min-height: 100vh;
     background-image: url(../img/background_site3.jpg);
@@ -20,21 +19,21 @@ body {
 /* NAVBAR */
 nav {
     display: flex;
+    background-color: black;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
     padding: 0 1.5rem;
     position: sticky;
-    z-index: 100;
+    z-index: 1;
     top: 0;
 }
 
 #logo {
-    width: 80px;
+    width: 70px;
+    height: 70px;
 }
 
-.menu {
+.navbar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -42,20 +41,17 @@ nav {
     padding: 0;
 }
 
-
-
-.menu li {
+.navbar li {
     display: inline-block;
     padding: 15px 35px;
 }
 
-
-.menu li a:hover {
-    color: black;
+.navbar li a:hover {
+    color: grey;
 }
 
-.menu li a::after {
-    background-color: black;
+.navbar li a::after {
+    background-color: grey;
     content: "";
     display: block;
     height: 3px;
@@ -63,16 +59,9 @@ nav {
     transition: 0.5s;
 }
 
-.menu li a:hover:after {
+.navbar li a:hover:after {
     width: 100%;
 }
-
-#openBtn,
-#closeBtn {
-    display: none;
-}
-
-
 
 /* FORMULAIRE */
 form {
@@ -149,65 +138,81 @@ body main section {
 /* FOOTER */
 body footer {
 
-    background-color: transparent;
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    background-color: black
 }
 
 footer p {
-    padding: 0 30px;
+    padding: 0 50px;
 }
 
-/* tablette */
 
-/* NAVBAR */
+/* TABLETS */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
 
+    /* NAVBAR */
 
+    #logo {
+        width: 60px;
+        height: 60px;
+    }
 
+    .navbar li {
+        display: inline-block;
+        padding: 10px 20px;
+    }
 
+    /* BODY */
+
+    body {
+        font-size: larger;
+    }
+
+    .lien {
+        font-size: 24px;
+        color: white;
+    }
+
+    /* FOOTER */
+
+    footer p {
+        padding: 0 30px;
+    }
+
+}
 
 
 /* MOBILE FIRST */
 
-/* NAVBAR */
-@media screen and (max-width:600px) {
-    #openBtn {
-        display: block;
-        font-size: 26px;
-        padding: 20px 0 20px 0;
-        cursor: pointer;
-    }
+@media screen and (max-width: 768px) {
 
-    #closeBtn {
-        display: block;
-        font-size: 26px;
-        padding: 20px 0 20px 20px;
-    }
+    /* NAVBAR */
 
-    nav {
+    #logo {
+        width: 50px;
         height: 50px;
     }
 
-    #logo {
-        margin-top: 5px;
-        width: 50px;
+    /* BODY */
+
+    .lien {
+        font-size: 20px;
+        color: white;
     }
 
-    .menu {
-        background-color: transparent;
-        backdrop-filter: blur(10px);
-        position: fixed;
-        display: block;
-        top: 0;
-        right: -200px;
-        width: 200px;
-        height: 100%;
-        transition: right 0.5s;
+    body {
+        font-size: medium;
     }
 
     /* FOOTER */
+
+    body footer {
+
+        display: flex;
+        flex-direction: column;
+    }
 }

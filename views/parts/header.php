@@ -23,11 +23,8 @@
 
 <body>
     <nav>
-        <div>
-            <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
-        </div>
-        <ul class="menu">
-            <i class="fa-solid fa-xmark" id="closeBtn"></i>
+        <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
+        <ul class="navbar">
             <li><a href="/accueil" class=lien>Accueil</a></li>
             <li><a href="/list-cabane" class=lien>Cabanes</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
@@ -42,6 +39,5 @@
                 <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
             <?php } ?>
         </ul>
-        <i class="fa-solid fa-bars" id="openBtn"></i>
     </nav>
     <main>
