@@ -59,7 +59,7 @@
     <!-- MODAL CONFIRMED DELETE ITEM -->
     <div id="modalContainer">
         <div id="modal">
-            <span id="closeBtn">&times;</span>
+            <span id="closeModalBtn">&times;</span>
             <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
             <form action="/modifier-item-<?= $item->id ?>" method="POST">
                 <button type="submit" name="delete">Supprimer</button>

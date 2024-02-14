@@ -109,7 +109,7 @@
     <!-- MODAL CONFIRMED DELETE ACCOUNT -->
     <div id="modalContainer">
         <div id="modal">
-            <span id="closeBtn">&times;</span>
+            <span id="closeModalBtn">&times;</span>
             <p id="modalText">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
             <form action="/modifier-mon-compte" method="POST">
                 <button type="submit" name="deleteAccount">Supprimer</button>

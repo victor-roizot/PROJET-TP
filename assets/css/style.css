@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-}  
+}
 
 
 body {
@@ -24,9 +24,9 @@ nav {
     background-color: transparent;
     backdrop-filter: blur(10px);
     padding: 0 1.5rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
+    position: sticky;
+    z-index: 100;
+    top: 0;
 }
 
 nav div {
@@ -77,9 +77,12 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
-section {
-    margin-top: 60px;
+#openBtn,
+#closeBtn {
+    display: none;
 }
+
+
 
 /* FORMULAIRE */
 form {
@@ -109,12 +112,12 @@ form input[type=checkbox] {
 #modalContainer {
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
-        align-items: center;
-        justify-content: center;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     position: fixed;
-        left: 0;
-        top: 0;
+    left: 0;
+    top: 0;
     width: 100%;
     z-index: 1;
 }
@@ -125,7 +128,7 @@ form input[type=checkbox] {
     width: 50%;
 }
 
-#closeBtn {
+#closeModalBtn {
     cursor: pointer;
     float: right;
 }
@@ -161,4 +164,38 @@ body footer {
 
 footer p {
     padding: 0 30px;
+}
+
+/* MOBILE FIRST */
+@media screen and (max-width:600px) {
+    #openBtn {
+        display: block;
+        font-size: 26px;
+        padding: 20px 0 20px 0;
+        cursor: pointer;
+    }
+
+    #closeBtn {
+        display: block;
+        font-size: 26px;
+        padding: 20px 0 20px 20px;
+    }
+
+    #logo {
+        width: 40px;
+    }
+
+    .nav-center {
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100%;
+        transition: right 0.5s;
+    }
+
+
 }
