@@ -33,7 +33,7 @@ nav {
     height: 70px;
 }
 
-.navbar {
+.navbar-desktop {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -41,16 +41,16 @@ nav {
     padding: 0;
 }
 
-.navbar li {
+.navbar-desktop li {
     display: inline-block;
     padding: 15px 35px;
 }
 
-.navbar li a:hover {
+.navbar-desktop li a:hover {
     color: grey;
 }
 
-.navbar li a::after {
+.navbar-desktop li a::after {
     background-color: grey;
     content: "";
     display: block;
@@ -59,8 +59,53 @@ nav {
     transition: 0.5s;
 }
 
-.navbar li a:hover:after {
+.navbar-desktop li a:hover:after {
     width: 100%;
+}
+
+.navbar-mobile{
+    display: none;
+}
+
+.navbar-mobile{
+    display: none;
+}
+
+.navbar-mobile i{
+    position: fixed;
+    z-index: 9999;
+    top: 9px;
+    right: 15px;
+    font-size: 3rem;
+    color: white;
+}
+.modal{
+    transition: top 0.9s;
+    background-color: black;
+    height: 100vh;
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.navbar-mobile .navbar-mobile-list{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.navbar-mobile .navbar-mobile-list a{
+    font-size: 5rem;
+    font-weight: 800;
+    color: white;
+    padding: 2rem;
+}
+.change-modal{
+    top:0
 }
 
 /* FORMULAIRE */
@@ -120,7 +165,6 @@ body main {
     align-items: center;
     padding: 0 4%;
 
-
 }
 
 body main section {
@@ -161,7 +205,7 @@ footer p {
         height: 60px;
     }
 
-    .navbar li {
+    .navbar-desktop li {
         display: inline-block;
         padding: 10px 20px;
     }
@@ -191,6 +235,14 @@ footer p {
 @media screen and (max-width: 768px) {
 
     /* NAVBAR */
+
+    .navbar-mobile {
+        display: block;
+    }
+
+    .navbar-desktop {
+        display: none;
+    }
 
     #logo {
         width: 50px;
