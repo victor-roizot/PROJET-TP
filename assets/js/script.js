@@ -2,7 +2,7 @@
 /* MENU BURGER */
 openBtn = document.getElementById('openBtn');
 closeBtn = document.getElementById('closeBtn');
-sideMenu = document.querySelector('.nav-center');
+sideMenu = document.querySelector('.menu');
 
 openBtn.addEventListener('click', ()=>{
     sideMenu.style.right = '0px';

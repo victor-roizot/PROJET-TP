@@ -21,6 +21,7 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: transparent;
     backdrop-filter: blur(10px);
     padding: 0 1.5rem;
@@ -29,42 +30,31 @@ nav {
     top: 0;
 }
 
-nav div {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
 #logo {
     width: 80px;
 }
 
-nav ul {
+.menu {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+
+
+.menu li {
     display: inline-block;
     padding: 15px 35px;
 }
 
-.lien {
-    font-size: 28px;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-}
 
-nav ul li a:hover {
+.menu li a:hover {
     color: black;
 }
 
-nav ul li a::after {
+.menu li a::after {
     background-color: black;
     content: "";
     display: block;
@@ -73,7 +63,7 @@ nav ul li a::after {
     transition: 0.5s;
 }
 
-nav ul li a:hover:after {
+.menu li a:hover:after {
     width: 100%;
 }
 
@@ -149,6 +139,12 @@ body main section {
     padding: 1rem;
 }
 
+.lien {
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
 
 /* FOOTER */
 body footer {
@@ -166,7 +162,18 @@ footer p {
     padding: 0 30px;
 }
 
+/* tablette */
+
+/* NAVBAR */
+
+
+
+
+
+
 /* MOBILE FIRST */
+
+/* NAVBAR */
 @media screen and (max-width:600px) {
     #openBtn {
         display: block;
@@ -181,15 +188,20 @@ footer p {
         padding: 20px 0 20px 20px;
     }
 
-    #logo {
-        width: 40px;
+    nav {
+        height: 50px;
     }
 
-    .nav-center {
+    #logo {
+        margin-top: 5px;
+        width: 50px;
+    }
+
+    .menu {
         background-color: transparent;
         backdrop-filter: blur(10px);
-        display: block;
         position: fixed;
+        display: block;
         top: 0;
         right: -200px;
         width: 200px;
@@ -197,5 +209,5 @@ footer p {
         transition: right 0.5s;
     }
 
-
+    /* FOOTER */
 }

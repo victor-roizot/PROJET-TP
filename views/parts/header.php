@@ -25,28 +25,23 @@
     <nav>
         <div>
             <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
-
         </div>
-        <div class="nav-center">
+        <ul class="menu">
             <i class="fa-solid fa-xmark" id="closeBtn"></i>
-            <ul>
-                <li><a href="/accueil" class=lien>Accueil</a></li>
-                <li><a href="/list-cabane" class=lien>Cabanes</a></li>
-                <?php if (empty($_SESSION['user'])) { ?>
-                    <li><a href="/inscription" class=lien>Inscription</a></li>
-                    <li><a href="/connexion" class=lien>Connexion</a></li>
-                <?php } else { ?>
-                    <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
-                    <!-- l'utilisateur aura accès à dashboard  uniquement s'il est administrateur -->
-                    <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-                        <li><a href="/dashboard" class=lien>Admin</a></li>
-                    <?php } ?>
-                    <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
+            <li><a href="/accueil" class=lien>Accueil</a></li>
+            <li><a href="/list-cabane" class=lien>Cabanes</a></li>
+            <?php if (empty($_SESSION['user'])) { ?>
+                <li><a href="/inscription" class=lien>Inscription</a></li>
+                <li><a href="/connexion" class=lien>Connexion</a></li>
+            <?php } else { ?>
+                <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
+                <!-- l'utilisateur aura accès à dashboard  uniquement s'il est administrateur -->
+                <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
+                    <li><a href="/dashboard" class=lien>Admin</a></li>
                 <?php } ?>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <i class="fa-solid fa-bars" id="openBtn"></i>
-        </div>
+                <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
+            <?php } ?>
+        </ul>
+        <i class="fa-solid fa-bars" id="openBtn"></i>
     </nav>
     <main>
