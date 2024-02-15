@@ -11,8 +11,8 @@
     <?php if (isset($errors['updateItem'])) { ?>
         <p><?= $errors['updateItem'] ?></p>
     <?php } ?>
-    <div>
-        <form action="/modifier-item-<?= $item->id ?>" method="post" enctype="multipart/form-data">
+    <div class="formContainer">
+        <form class="form" action="/modifier-item-<?= $item->id ?>" method="post" enctype="multipart/form-data">
 
             <label for="image">Image de la cabane</label>
             <input type="file" name="image" id="image" value="<?= $itemDetails->image ?>">
@@ -43,16 +43,18 @@
                     <p><?= $errors['description'] ?></p>
                 <?php } ?>
 
-                <input type="submit" value="Modifier" name="updateItem">
+                <input class="submit" type="submit" value="Modifier" name="updateItem">
         </form>
     </div>
 
 
     <!-- DELETE ITEM -->
-    <div>
-        <h2>Supprimer la cabane</h2>
+    <div class="DivDelete">
+        <div class="containerDelete">
+            <h2>Supprimer la cabane</h2>
 
-        <button id="openModalBtn">Supprimer</button>
+            <button class="submitDelete" id="openModalBtn">Supprimer</button>
+        </div>
     </div>
 
 
@@ -61,8 +63,8 @@
         <div id="modal">
             <span id="closeModalBtn">&times;</span>
             <p id="modalText">Êtes-vous sûr de vouloir supprimer la cabane ?</p>
-            <form action="/modifier-item-<?= $item->id ?>" method="POST">
-                <button type="submit" name="delete">Supprimer</button>
+            <form class="FormBtnDelete" action="/modifier-item-<?= $item->id ?>" method="POST">
+                <button class="btnDelete" type="submit" name="delete">Supprimer</button>
             </form>
         </div>
     </div>

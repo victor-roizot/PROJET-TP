@@ -16,10 +16,17 @@ body {
     overflow-x: hidden;
 }
 
+h1,
+h2,
+h3,
+p {
+    padding: 1rem;
+}
+
 /* NAVBAR */
 nav {
     display: flex;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95);
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
@@ -129,47 +136,59 @@ nav {
 }
 
 /* FORMULAIRE */
-form {
+.formContainer,
+.DivDelete {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.form,
+.containerDelete {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    background-color: rgba(10, 10, 12, 0.7);
-    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    background-color: rgba(10, 12, 10, 0.7);
+    box-shadow: rgba(2, 65, 4, 0.2) 0px 8px 24px;
     border-radius: 20px;
     margin-bottom: 1.5rem;
     padding: 2rem;
-    width: 100%;
+    width: 60%;
 }
 
-
-form label {
+.form label {
     font-weight: bold;
     margin-top: 1.5rem;
 }
 
 input,
-select {
+select,
+textarea,
+.submitDelete {
     border: 1px solid #eaeaea;
     border-radius: 10px;
     padding: 0.4rem;
     margin: 0.4rem;
 }
 
-
-form input:focus {
+.form input:focus {
     outline: none;
     border-bottom: 4px solid darkgreen;
     border-radius: 10px;
 }
 
-.upsubmitbtn{
+.upsubmitbtn {
     margin-bottom: 2rem;
 }
 
-.submit {
-    width: 25%;
-    margin:0 auto;
+.submit,
+.submitDelete {
+    width: 20%;
+    margin: 0 auto;
     padding: 0.5rem 1rem;
 }
 
@@ -188,9 +207,23 @@ form input:focus {
 }
 
 #modal {
-    background-color: red;
+    background-color: darkred;
+    border-radius: 20px;
     padding: 1rem;
     width: 30%;
+}
+
+.FormBtnDelete {
+    display: flex;
+    align-items: center;
+}
+
+.btnDelete {
+    width: 30%;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
 }
 
 #closeModalBtn {
@@ -199,17 +232,12 @@ form input:focus {
 }
 
 /* BODY */
-body main {
+body main section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 4%;
-}
-
-body main section {
-    width: 80%;
-    padding: 1rem;
 }
 
 .lien {
@@ -226,13 +254,12 @@ body footer {
     justify-content: center;
     align-items: center;
     margin-top: auto;
-    background-color: black
+    background-color: rgba(0, 0, 0, 0.95);
 }
 
 footer p {
     padding: 10px 50px;
 }
-
 
 /* TABLETS */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -248,12 +275,30 @@ footer p {
         padding: 10px 15px;
     }
 
+    /* FORMULAIRE */
+    .form,
+    .containerDelete {
+        width: 80%;
+    }
+
+    .submit,
+    .submitDelete,
+    .btnDelete {
+        width: 40%;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+    }
+
+    /* MODALE DELETE */
+    #modal {
+        width: 50%;
+    }
+
     /* FOOTER */
     footer p {
         padding: 10px 30px;
     }
 }
-
 
 /* MOBILE FIRST */
 @media screen and (max-width: 768px) {
@@ -273,7 +318,45 @@ footer p {
     }
 
     /* BODY */
+    body {
+        min-height: 100vh;
+        background-image: url(../img/background_site3.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-size: large;
+        overflow-x: hidden;
+    }
 
+    /* FORMULAIRE */
+    .form,
+    .containerDelete {
+        width: 100%;
+    }
+
+    .formContainer,
+    .DivDelete {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit,
+    .submitDelete,
+    .btnDelete {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+    }
+
+    /* MODALE DELETE */
+    #modal {
+        width: 70%;
+    }
 
     /* FOOTER */
     body footer {

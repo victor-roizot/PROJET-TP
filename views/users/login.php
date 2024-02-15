@@ -2,7 +2,7 @@
 <section>
     <h1>Connexion</h1>
     <div class="formContainer">
-        <form action="#" method="POST">
+        <form class="form" action="#" method="POST">
             <label for="email">Adresse mail</label>
             <input type="email" name="email" id="email" placeholder="jean.dupont@gmail.fr" value="<?= @$_COOKIE['email'] ?>">
             <?php if (isset($errors['email'])) { ?>

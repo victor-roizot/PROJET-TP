@@ -4,7 +4,8 @@
     <?php if (isset($success)) { ?>
         <p><?= $success ?></p>
     <?php } ?>
-        <form action="/inscription" method="post">
+    <div class="formContainer">
+        <form class="form" action="/inscription" method="post">
 
             <label for="lastname">Nom :</label>
             <input type="text" name="lastname" id="lastname" placeholder="Dupont">
@@ -62,4 +63,5 @@
 
             <input class="submit" type="submit" value="S'inscrire">
         </form>
+    </div>
 </section>

@@ -9,8 +9,8 @@
         <p><?= $errors['itemAdd'] ?></p>
     <?php } ?>
 
-    <div>
-        <form action="/ajout-item" method="POST" enctype="multipart/form-data">
+    <div class="formContainer">
+        <form class="form" action="/ajout-item" method="POST" enctype="multipart/form-data">
 
             <label for="image">Image de la cabane</label>
             <input type="file" name="image" id="image">
@@ -41,7 +41,7 @@
                 <p><?= $errors['description'] ?></p>
             <?php } ?>
 
-            <input type="submit" value="Créer">
+            <input class="submit" type="submit" value="Créer">
 
         </form>
     </div>

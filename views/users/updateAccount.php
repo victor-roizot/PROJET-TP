@@ -11,7 +11,7 @@
         <p><?= $errors['updateAddress'] ?></p>
     <?php } ?>
     <div class="formContainer">
-        <form action="/modifier-mon-compte" method="post">
+        <form class="form" action="/modifier-mon-compte" method="post">
             <h2>Modifier mon adresse</h2>
             <label for="address">Adresse</label>
             <input type="text" name="address" id="address" value="<?= $userAccount->address ?>">
@@ -41,7 +41,7 @@
         <p><?= $errors['updatePhoneNumber'] ?></p>
     <?php } ?>
     <div class="formContainer">
-        <form action="/modifier-mon-compte" method="post">
+        <form class="form" action="/modifier-mon-compte" method="post">
             <h2>Modifier mon numéro</h2>
             <label for="phoneNumber">Numéro</label>
             <input class="upsubmitbtn" type="text" name="phoneNumber" value="<?= $userAccount->phoneNumber ?>">
@@ -59,7 +59,7 @@
         <p><?= $errors['updateEmail'] ?></p>
     <?php } ?>
     <div class="formContainer">
-        <form action="/modifier-mon-compte" method="post">
+        <form class="form" action="/modifier-mon-compte" method="post">
             <h2>Modifier mon email</h2>
             <label for="email">Email</label>
             <input class="upsubmitbtn" type="text" name="email" value="<?= $userAccount->email ?>">
@@ -76,8 +76,8 @@
         <p><?= $errors['updatePassword'] ?></p>
     <?php } ?>
 
-    <div  class="formContainer">
-        <form action="/modifier-mon-compte" method="POST">
+    <div class="formContainer">
+        <form class="form" action="/modifier-mon-compte" method="POST">
             <h2>Modifier mon mot de passe</h2>
 
             <label for="password">Mot de passe</label>
@@ -96,20 +96,20 @@
     </div>
 
     <!-- DELETE ACCOUNT -->
-    <div>
-        <h2>Supprimer mon compte</h2>
-
-        <button id="openModalBtn">Supprimer</button>
+    <div class="DivDelete">
+        <div class="containerDelete">
+            <h2>Supprimer mon compte</h2>
+            <button class="submitDelete" id="openModalBtn">Supprimer</button>
+        </div>
     </div>
-
 
     <!-- MODAL CONFIRMED DELETE ACCOUNT -->
     <div id="modalContainer">
         <div id="modal">
             <span id="closeModalBtn">&times;</span>
             <p id="modalText">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
-            <form action="/modifier-mon-compte" method="POST">
-                <button type="submit" name="deleteAccount">Supprimer</button>
+            <form class="FormBtnDelete" action="/modifier-mon-compte" method="POST">
+                <button class="btnDelete" type="submit" name="deleteAccount">Supprimer</button>
             </form>
         </div>
     </div>
