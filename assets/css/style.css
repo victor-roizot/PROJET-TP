@@ -118,7 +118,6 @@ nav {
     height: 3px;
     width: 0%;
     transition: 0.5s;
-
 }
 
 .navbar-mobile li a:hover:after {
@@ -135,27 +134,48 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    background-color: rgba(10, 10, 12, 0.7);
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    width: 100%;
 }
+
 
 form label {
     font-weight: bold;
     margin-top: 1.5rem;
 }
 
-form input:focus {
-    outline: none;
-    border-bottom: 3px solid black;
+input,
+select {
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    padding: 0.4rem;
+    margin: 0.4rem;
 }
 
-form input[type=checkbox] {
-    margin: 0;
-    margin-right: 1rem;
-    padding: 0;
+
+form input:focus {
+    outline: none;
+    border-bottom: 4px solid darkgreen;
+    border-radius: 10px;
+}
+
+.upsubmitbtn{
+    margin-bottom: 2rem;
+}
+
+.submit {
+    width: 25%;
+    margin:0 auto;
+    padding: 0.5rem 1rem;
 }
 
 /* MODALE DELETE */
 #modalContainer {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(20, 20, 20, 0.8);
     display: none;
     align-items: center;
     justify-content: center;
@@ -170,7 +190,7 @@ form input[type=checkbox] {
 #modal {
     background-color: red;
     padding: 1rem;
-    width: 50%;
+    width: 30%;
 }
 
 #closeModalBtn {
@@ -185,7 +205,6 @@ body main {
     justify-content: center;
     align-items: center;
     padding: 0 4%;
-
 }
 
 body main section {
@@ -202,7 +221,6 @@ body main section {
 
 /* FOOTER */
 body footer {
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -212,7 +230,7 @@ body footer {
 }
 
 footer p {
-    padding: 0 50px;
+    padding: 10px 50px;
 }
 
 
@@ -220,7 +238,6 @@ footer p {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
 
     /* NAVBAR */
-
     #logo {
         width: 60px;
         height: 60px;
@@ -228,28 +245,20 @@ footer p {
 
     .navbar-desktop li {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 10px 15px;
     }
-
-    /* BODY */
-
-
 
     /* FOOTER */
-
     footer p {
-        padding: 0 30px;
+        padding: 10px 30px;
     }
-
 }
 
 
 /* MOBILE FIRST */
-
 @media screen and (max-width: 768px) {
 
     /* NAVBAR */
-
     .navbar-mobile {
         display: block;
     }
@@ -263,18 +272,11 @@ footer p {
         height: 50px;
     }
 
-    .lien {
-        font-size: 28px;
-    }
-
-
     /* BODY */
 
 
     /* FOOTER */
-
     body footer {
-
         display: flex;
         flex-direction: column;
     }
