@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -9,8 +11,6 @@ body {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
     color: white;
     font-size: x-large;
     overflow-x: hidden;
@@ -63,34 +63,35 @@ nav {
     width: 100%;
 }
 
-.navbar-mobile{
+.navbar-mobile {
     display: none;
 }
 
-.navbar-mobile{
+.navbar-mobile {
     display: none;
 }
 
-.navbar-mobile i{
+.navbar-mobile i {
     position: fixed;
-    z-index: 9999;
-    top: 9px;
+    z-index: 10;
+    top: 10px;
     right: 15px;
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
 }
-.modal{
-    transition: top 0.9s;
+
+.modal {
+    transition: top 1s;
     background-color: black;
     height: 100vh;
     position: fixed;
     top: -100vh;
     left: 0;
     width: 100%;
-    opacity: 0.9;
+    opacity: 1;
 }
 
-.navbar-mobile .navbar-mobile-list{
+.navbar-mobile .navbar-mobile-list {
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -98,14 +99,34 @@ nav {
     justify-content: center;
     list-style: none;
 }
-.navbar-mobile .navbar-mobile-list a{
-    font-size: 5rem;
-    font-weight: 800;
+
+.navbar-mobile .navbar-mobile-list a {
+    font-size: 50px;
+    font-weight: 600;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
 }
-.change-modal{
-    top:0
+
+.navbar-mobile li a:hover {
+    color: grey;
+}
+
+.navbar-mobile li a::after {
+    background-color: grey;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    transition: 0.5s;
+
+}
+
+.navbar-mobile li a:hover:after {
+    width: 100%;
+}
+
+.change-modal {
+    top: 0
 }
 
 /* FORMULAIRE */
@@ -212,14 +233,7 @@ footer p {
 
     /* BODY */
 
-    body {
-        font-size: larger;
-    }
 
-    .lien {
-        font-size: 24px;
-        color: white;
-    }
 
     /* FOOTER */
 
@@ -249,16 +263,13 @@ footer p {
         height: 50px;
     }
 
+    .lien {
+        font-size: 28px;
+    }
+
+
     /* BODY */
 
-    .lien {
-        font-size: 20px;
-        color: white;
-    }
-
-    body {
-        font-size: medium;
-    }
 
     /* FOOTER */
 
