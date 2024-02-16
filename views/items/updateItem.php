@@ -15,7 +15,7 @@
         <form class="form" action="/modifier-item-<?= $item->id ?>" method="post" enctype="multipart/form-data">
 
             <label for="image">Image de la cabane</label>
-            <input type="file" name="image" id="image" value="<?= $itemDetails->image ?>">
+            <input type="file" name="image" id="image">
             <?php if (isset($errors['image'])) { ?>
                 <p><?= $errors['image'] ?></p>
             <?php } ?>
@@ -30,20 +30,21 @@
             <select name="categories" id="categories">
                 <option selected disabled>Choisissez une catégorie</option>
                 <?php foreach ($categoriesList as $c) { ?>
-                    <option value="<?= $c->id ?>"><?= $c->name ?></option>
+                    <option value="<?= $c->id ?>" <?= $itemDetails->id_categories == $c->id ? 'selected' : '' ?>><?= $c->name ?></option>
                 <?php } ?>
-                <?php if (isset($errors['categories'])) { ?>
-                    <p><?= $errors['categories'] ?></p>
-                <?php } ?>
+            </select>
+            <?php if (isset($errors['categories'])) { ?>
+                <p><?= $errors['categories'] ?></p>
+            <?php } ?>
 
 
-                <label for="description">Description de la cabane</label>
-                <textarea name="description" id="description"></textarea>
-                <?php if (isset($errors['description'])) { ?>
-                    <p><?= $errors['description'] ?></p>
-                <?php } ?>
+            <label for="description">Description de la cabane</label>
+            <textarea name="description" id="description"><?= $itemDetails->description ?></textarea>
+            <?php if (isset($errors['description'])) { ?>
+                <p><?= $errors['description'] ?></p>
+            <?php } ?>
 
-                <input class="submit" type="submit" value="Modifier" name="updateItem">
+            <input class="submit" type="submit" value="Modifier" name="updateItem">
         </form>
     </div>
 

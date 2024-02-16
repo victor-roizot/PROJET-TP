@@ -76,7 +76,7 @@ class Items
      */
     public function getById()
     {
-        $sql = 'SELECT `hut`, `image`, `description`, `name` AS `categorie`
+        $sql = 'SELECT `hut`, `image`, `description`, `name` AS `categorie`, `id_categories` 
             FROM `hubx02_items` AS `i`
             INNER JOIN `hubx02_categories` AS `c` ON `id_categories` = `c`.`id`
             WHERE `i`.`id` = :id';

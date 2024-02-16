@@ -41,6 +41,7 @@ $user->id = $_SESSION['user']['id'];
 // récupère le id  par le URL
 $item->id = $_GET['id'];
 
+$imageUploaded = true;
 
 
 // vérifie s'il existe sinon renvoie vers les cabanes
@@ -83,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         //Je vérifie pour tous les autres champs de la même manière.
-        if (!empty($_FILES['image'])) {
+        if (!empty($_FILES['image']['name'])) {
             $imageMessage = checkImage($_FILES['image']);
 
             if ($imageMessage != '') {
@@ -98,6 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $item->image = uniqid() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
                 }
             }
+        } else {
+            $item->image = $itemDetails->image;
+            $imageUploaded = false;
+            var_dump($_FILES);
         }
 
 
@@ -123,25 +128,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
         }
 
-        
+
         // Si je n'ai aucune erreur
         if (empty($errors)) {
+            
+            if ($imageUploaded == true) {
+                // Si l'image s'enregistre
+                if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
 
-            // Si l'image s'enregistre
-            if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
+                    // Je crée la cabane et un message de succès.
+                    if ($item->updateItem()) {
+                        unlink('../../assets/img/items/' . $itemDetails->image);
+                        $success = ITEM_UPDATE_SUCCESS;
+                    } else {
 
+                        // Sinon je supprime l'image avec des messages d'erreur
+                        unlink('../../assets/img/items/' . $item->image);
+                        $errors['updateItem'] = ITEM_UPDATE_ERROR;
+                    }
+                } else {
+                    $errors['updateItem'] = ITEM_UPDATE_ERROR;
+                }
+            } else {
                 // Je crée la cabane et un message de succès.
                 if ($item->updateItem()) {
-                    unlink('../../assets/img/items/' . $itemDetails->image);
                     $success = ITEM_UPDATE_SUCCESS;
                 } else {
 
                     // Sinon je supprime l'image avec des messages d'erreur
-                    unlink('../../assets/img/items/' . $item->image);
                     $errors['updateItem'] = ITEM_UPDATE_ERROR;
                 }
-            } else {
-                $errors['updateItem'] = ITEM_UPDATE_ERROR;
             }
         }
     }
