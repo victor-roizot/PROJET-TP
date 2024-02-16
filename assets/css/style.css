@@ -192,15 +192,13 @@ textarea,
     border-radius: 10px;
 }
 
-.upsubmitbtn {
-    margin-bottom: 2rem;
-}
 
 .submit,
 .submitDelete {
     width: 20%;
     margin: 0 auto;
     padding: 0.5rem 1rem;
+    margin-top: 2rem;
 }
 
 .lienForm {
@@ -377,6 +375,7 @@ footer p {
         width: 40%;
         margin: 0 auto;
         padding: 0.5rem 1rem;
+        margin-top: 2rem;
     }
 
     /* MODALE DELETE */
@@ -449,6 +448,7 @@ footer p {
         width: 80%;
         margin: 0 auto;
         padding: 0.5rem 1rem;
+        margin-top: 2rem;
     }
 
     /* MODALE DELETE */
