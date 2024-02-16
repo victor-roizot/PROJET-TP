@@ -1,9 +1,10 @@
 <!-- L'utilisateur pourra voir son profil -->
 <section>
+    <h1>Profil de :</h1>
     <div class="viewContainer">
         <div class="view">
-            <h1>Profil de <?= $userAccount->lastname ?></h1>
-            <h1><?= $userAccount->firstname ?></h1>
+            <h2><?= $userAccount->lastname ?></h2>
+            <h2><?= $userAccount->firstname ?></h2>
             <p>Adresse : <?= $userAccount->address ?></p>
             <p>Code postal : <?= $userAccount->zipCode ?></p>
             <p>Ville : <?= $userAccount->city ?></p>
