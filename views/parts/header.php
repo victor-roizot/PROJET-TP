@@ -26,18 +26,18 @@
         <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
         
         <ul class="navbar-desktop">
-            <li><a href="/accueil" class=lien>Accueil</a></li>
-            <li><a href="/list-cabane" class=lien>Cabanes</a></li>
+            <li><a href="/accueil" class=lienNav >Accueil</a></li>
+            <li><a href="/list-cabane" class=lienNav>Cabanes</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
-                <li><a href="/inscription" class=lien>Inscription</a></li>
-                <li><a href="/connexion" class=lien>Connexion</a></li>
+                <li><a href="/inscription" class=lienNav>Inscription</a></li>
+                <li><a href="/connexion" class=lienNav>Connexion</a></li>
             <?php } else { ?>
-                <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
+                <li><a href="/mon-compte" class="lienNav"><?= $_SESSION['user']['lastname'] ?></a></li>
                 <!-- l'utilisateur aura accès à dashboard  uniquement s'il est administrateur -->
                 <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-                    <li><a href="/dashboard" class=lien>Admin</a></li>
+                    <li><a href="/dashboard" class=lienNav>Admin</a></li>
                 <?php } ?>
-                <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
+                <li><a href="/deconnexion" class=lienNav>Déconnexion</a></li>
             <?php } ?>
         </ul>
 
@@ -45,18 +45,18 @@
             <i class="fas fa-bars"></i>
             <div class="modal">
                 <ul class="navbar-mobile-list">
-                    <li><a href="/accueil" class=lien>Accueil</a></li>
-                    <li><a href="/list-cabane" class=lien>Cabanes</a></li>
+                    <li><a href="/accueil" class=lienNav>Accueil</a></li>
+                    <li><a href="/list-cabane" class=lienNav>Cabanes</a></li>
                     <?php if (empty($_SESSION['user'])) { ?>
-                        <li><a href="/inscription" class=lien>Inscription</a></li>
-                        <li><a href="/connexion" class=lien>Connexion</a></li>
+                        <li><a href="/inscription" class=lienNav>Inscription</a></li>
+                        <li><a href="/connexion" class=lienNav>Connexion</a></li>
                     <?php } else { ?>
-                        <li><a href="/mon-compte" class="lien"><?= $_SESSION['user']['lastname'] ?></a></li>
+                        <li><a href="/mon-compte" class=lienNav><?= $_SESSION['user']['lastname'] ?></a></li>
                         <!-- l'utilisateur aura accès à dashboard  uniquement s'il est administrateur -->
                         <?php if ($_SESSION['user']['id_usersRoles'] == 255) { ?>
-                            <li><a href="/dashboard" class=lien>Admin</a></li>
+                            <li><a href="/dashboard" class=lienNav>Admin</a></li>
                         <?php } ?>
-                        <li><a href="/deconnexion" class=lien>Déconnexion</a></li>
+                        <li><a href="/deconnexion" class=lienNav>Déconnexion</a></li>
                     <?php } ?>
                 </ul>
             </div>
