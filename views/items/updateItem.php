@@ -3,13 +3,13 @@
     <h1>Modifier ma cabane</h1>
 
     <?php if (isset($success)) { ?>
-        <p><?= $success ?></p>
+        <p class="success"><?= $success ?></p>
     <?php } ?>
 
 
     <!-- UPDATE ITEM -->
     <?php if (isset($errors['updateItem'])) { ?>
-        <p><?= $errors['updateItem'] ?></p>
+        <p class="errors"><?= $errors['updateItem'] ?></p>
     <?php } ?>
     <div class="formContainer">
         <form class="form" action="/modifier-item-<?= $item->id ?>" method="post" enctype="multipart/form-data">
@@ -17,13 +17,13 @@
             <label for="image">Image de la cabane</label>
             <input type="file" name="image" id="image">
             <?php if (isset($errors['image'])) { ?>
-                <p><?= $errors['image'] ?></p>
+                <p class="errors"><?= $errors['image'] ?></p>
             <?php } ?>
 
             <label for="hut">Nom de la cabane</label>
             <input type="text" name="hut" id="hut" value="<?= $itemDetails->hut ?>">
             <?php if (isset($errors['hut'])) { ?>
-                <p><?= $errors['hut'] ?></p>
+                <p class="errors"><?= $errors['hut'] ?></p>
             <?php } ?>
 
             <label for="categories">Catégorie de la cabane</label>
@@ -34,14 +34,14 @@
                 <?php } ?>
             </select>
             <?php if (isset($errors['categories'])) { ?>
-                <p><?= $errors['categories'] ?></p>
+                <p class="errors"><?= $errors['categories'] ?></p>
             <?php } ?>
 
 
             <label for="description">Description de la cabane</label>
             <textarea name="description" id="description"><?= $itemDetails->description ?></textarea>
             <?php if (isset($errors['description'])) { ?>
-                <p><?= $errors['description'] ?></p>
+                <p class="errors"><?= $errors['description'] ?></p>
             <?php } ?>
 
             <input class="submit" type="submit" value="Modifier" name="updateItem">

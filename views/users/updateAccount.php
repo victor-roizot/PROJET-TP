@@ -2,13 +2,13 @@
 <section>
 
     <?php if (isset($success)) { ?>
-        <p><?= $success ?></p>
+        <p class="success"><?= $success ?></p>
     <?php } ?>
 
 
     <!-- UPDATE ADDRESS -->
     <?php if (isset($errors['updateAddress'])) { ?>
-        <p><?= $errors['updateAddress'] ?></p>
+        <p class="errors"><?= $errors['updateAddress'] ?></p>
     <?php } ?>
     <div class="formContainer">
         <form class="form" action="/modifier-mon-compte" method="post">
@@ -16,19 +16,19 @@
             <label for="address">Adresse</label>
             <input type="text" name="address" id="address" value="<?= $userAccount->address ?>">
             <?php if (isset($errors['address'])) { ?>
-                <p><?= $errors['address'] ?></p>
+                <p class="errors"><?= $errors['address'] ?></p>
             <?php } ?>
 
             <label for="zipCode">Code postal</label>
             <input type="text" name="zipCode" id="zipCode" value="<?= $userAccount->zipCode ?>">
             <?php if (isset($errors['zipCode'])) { ?>
-                <p><?= $errors['zipCode'] ?></p>
+                <p class="errors"><?= $errors['zipCode'] ?></p>
             <?php } ?>
 
             <label for="city">Ville</label>
             <input class="upsubmitbtn" type="text" name="city" id="city" value="<?= $userAccount->city ?>">
             <?php if (isset($errors['city'])) { ?>
-                <p><?= $errors['city'] ?></p>
+                <p class="errors"><?= $errors['city'] ?></p>
             <?php } ?>
 
             <input class="submit" type="submit" value="Modifier" name="updateAddress">
@@ -38,7 +38,7 @@
 
     <!-- UPDATE PHONENUMBER -->
     <?php if (isset($errors['updatePhoneNumber'])) { ?>
-        <p><?= $errors['updatePhoneNumber'] ?></p>
+        <p class="errors"><?= $errors['updatePhoneNumber'] ?></p>
     <?php } ?>
     <div class="formContainer">
         <form class="form" action="/modifier-mon-compte" method="post">
@@ -46,7 +46,7 @@
             <label for="phoneNumber">Numéro</label>
             <input class="upsubmitbtn" type="text" name="phoneNumber" value="<?= $userAccount->phoneNumber ?>">
             <?php if (isset($errors['phoneNumber'])) { ?>
-                <p><?= $errors['phoneNumber'] ?></p>
+                <p class="errors"><?= $errors['phoneNumber'] ?></p>
             <?php } ?>
 
             <input class="submit" type="submit" value="Modifier" name="updatePhoneNumber">
@@ -56,7 +56,7 @@
 
     <!-- UPDATE EMAIL -->
     <?php if (isset($errors['updateEmail'])) { ?>
-        <p><?= $errors['updateEmail'] ?></p>
+        <p class="errors"><?= $errors['updateEmail'] ?></p>
     <?php } ?>
     <div class="formContainer">
         <form class="form" action="/modifier-mon-compte" method="post">
@@ -64,7 +64,7 @@
             <label for="email">Email</label>
             <input class="upsubmitbtn" type="text" name="email" value="<?= $userAccount->email ?>">
             <?php if (isset($errors['email'])) { ?>
-                <p><?= $errors['email'] ?></p>
+                <p class="errors"><?= $errors['email'] ?></p>
             <?php } ?>
 
             <input class="submit" type="submit" value="Modifier" name="updateEmail">
@@ -73,7 +73,7 @@
 
     <!-- UPDATE PASSWORD -->
     <?php if (isset($errors['updatePassword'])) { ?>
-        <p><?= $errors['updatePassword'] ?></p>
+        <p class="errors"><?= $errors['updatePassword'] ?></p>
     <?php } ?>
 
     <div class="formContainer">
@@ -83,13 +83,13 @@
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" placeholder="Azerty456!">
             <?php if (isset($errors['password'])) { ?>
-                <p><?= $errors['password'] ?></p>
+                <p class="errors"><?= $errors['password'] ?></p>
             <?php } ?>
 
             <label for="password_confirm">Confirmation du mot de passe</label>
             <input class="upsubmitbtn" type="password" name="password_confirm" id="password_confirm" placeholder="Azerty456!">
             <?php if (isset($errors['password_confirm'])) { ?>
-                <p><?= $errors['password_confirm'] ?></p>
+                <p class="errors"><?= $errors['password_confirm'] ?></p>
             <?php } ?>
             <input class="submit" type="submit" value="Modifier" name="updatePassword">
         </form>
