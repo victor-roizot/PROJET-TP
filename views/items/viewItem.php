@@ -23,7 +23,7 @@
 
             if (isset($_SESSION['user']) && $_SESSION['user']['id_usersRoles'] == 255) { ?>
 
-                <a class=lienForm href="/modifier-item-<?= $item->id ?>">modifier ma cabane</a>
+                <a class=lienForm href="/modifier-item-<?= $item->id ?>">modifier</a>
             <?php } ?>
     </div>
 </section>

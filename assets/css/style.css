@@ -148,6 +148,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    padding-right: 3%;
 }
 
 .articles {
@@ -155,6 +156,7 @@ nav {
     box-shadow: rgba(2, 65, 4, 0.2) 0px 8px 24px;
     border-radius: 20px;
     padding: 1rem;
+    padding-bottom: 2rem;
     margin: 1rem;
     width: 100%;
 }
@@ -167,18 +169,20 @@ nav {
     margin: 2rem;
     width: 90%;
 }
+
 .articleImages {
     height: 30rem;
     width: 100%;
     border-radius: 20px;
 }
+
 .articleImageView {
-    height: 40rem;
+    height: 55rem;
     width: 100%;
     border-radius: 20px;
 }
 
-.viewDescription{
+.viewDescription {
     padding-bottom: 2rem;
 }
 
@@ -389,6 +393,21 @@ footer p {
         margin: 2rem;
     }
 
+    /* CABANE */
+    .articlesContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .articleImages {
+        height: 40rem;
+    }
+
+    .articleImages,
+    .articleImageView {
+        height: 40rem;
+    }
+
     /* FORMULAIRE */
     .form,
     .view,
@@ -450,6 +469,25 @@ footer p {
         width: 100%;
         padding: 0.5rem;
         margin: 0.5rem;
+    }
+
+    /* CABANE */
+    .articlesContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .articles,
+    .articleview {
+        width: 100%;
+        padding: 0.5rem;
+        padding-bottom: 2rem;
+        margin: 0.5rem;
+    }
+
+    .articleImages,
+    .articleImageView {
+        height: 20rem;
     }
 
     /* FORMULAIRE */
