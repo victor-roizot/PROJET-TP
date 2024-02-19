@@ -399,8 +399,11 @@ footer p {
         flex-direction: column;
     }
 
-    .articleImages {
-        height: 40rem;
+    .articleview {
+        width: 100%;
+        padding: 1rem;
+        padding-bottom: 2rem;
+        margin: 1rem;
     }
 
     .articleImages,

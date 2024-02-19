@@ -169,7 +169,7 @@ class Users
      */
     public function getInfosByEmail()
     {
-        $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `id_usersRoles` FROM `hubx02_users` WHERE `email` = :email';
+        $sql = 'SELECT `id`, `lastname`, `firstname`, `address`, `phoneNumber`, `id_usersRoles` FROM `hubx02_users` WHERE `email` = :email';
         $req = $this->pdo->prepare($sql);
         $req->bindValue(':email', $this->email, PDO::PARAM_STR);
         $req->execute();

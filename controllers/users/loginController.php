@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              * Ou vérifier s'il a le bon rôle pour accéder à certaines pages.
              */
             $_SESSION['user'] = $user->getInfosByEmail();
+            $_SESSION['user']['email'] = $_POST['email'];
             header('Location: /mon-compte');
             exit;
         }
