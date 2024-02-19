@@ -1,12 +1,13 @@
 <!-- L'utilisateur pourra voir la liste les cabanes à louer -->
 <section>
-    <h1>cabanes</h1>
-    <div>
-        <!-- Boucle des éléments de la liste des items -->
-        <?php foreach ($itemsList as $i) { ?>
-            <div>
+    <h1> Les cabanes</h1>
+
+    <!-- Boucle des éléments de la liste des items -->
+    <div class="articlesContainer">
+    <?php foreach ($itemsList as $i) { ?>
+            <div class="articles">
                 <!-- Affichage de l'image' -->
-                <img src="assets/img/items/<?= $i->image ?>" alt="Image de la cabane">
+                <img class="articleImages" src="assets/img/items/<?= $i->image ?>" alt="Image de la cabane">
                 <div>
                     <!-- Affichage du nom de la cabane -->
                     <h2><?= $i->hut ?></h2>
@@ -17,14 +18,14 @@
                     </p>
 
                     <!-- Affichage de la description -->
-                    <p>
+                    <p class="viewDescription">
                         <?= strip_tags($i->description) ?>...
                     </p>
 
                     <!-- Lien vers la page détaillée de la cabane -->
-                    <a class=lien href="/cabane-<?= $i->id ?>">Lire la suite</a>
+                    <a class=lienForm href="/cabane-<?= $i->id ?>">Lire la suite</a>
                 </div>
             </div>
-        <?php } ?>
-    </div>
+            <?php } ?>
+        </div>
 </section>
