@@ -9,8 +9,8 @@ class Reservations
     public string $startingDate;
     public string $endingDate;
     public int $personsNumber;
-    public string $lunch;
-    public string $condition;
+    public bool $lunch;
+    public  bool $condition;
     public int $id_items;
     public int $id_users;
     private $pdo;
@@ -33,8 +33,8 @@ class Reservations
      * @param string $startingDate date de debut de la réservation.
      * @param string $endingDate date de fin de la réservation.
      * @param int $personsNumber nombre de personne.
-     * @param string $lunch validation panier repas
-     * @param string $condition validation condition de location.
+     * @param bool $lunch validation panier repas
+     * @param bool $condition validation condition de location.
      * @param int $id_items L' id de la cabane.
      * @param int $id_users L' id de l'utilisateur.
      * @return bool
