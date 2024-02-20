@@ -184,7 +184,7 @@ class Users
      * Récupère le mot de passe hashé d'un utilisateur dans la base de données. 
      * On l'utilisera pour vérifier avec la fonction password_verify que le mot de passe saisi par l'utilisateur correspond bien à celui stocké dans la base de données.
      * @param string $email L'adresse email de l'utilisateur qui nous permettra de récupérer son mot de passe
-     * @return string Le mot de passe hashé
+     * @return string 
      */
     public function getPassword()
     {
