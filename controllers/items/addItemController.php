@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['hut'] = ITEM_TITLE_ERROR_EMPTY;
     }
 
-
     //Je vérifie pour tous les autres champs de la même manière.
     if (!empty($_FILES['image'])) {
         $imageMessage = checkImage($_FILES['image']);
@@ -63,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-
     if (!empty($_POST['description'])) {
         if (!preg_match($regex['description'], $_POST['description'])) {
             $item->description = clean($_POST['description']);
@@ -73,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
     }
-
 
     if (!empty($_POST['categories'])) {
         $categories->id = $_POST['categories'];
@@ -96,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($item->create()) {
                 $success = ITEM_ADD_SUCCESS;
             } else {
-
                 // Sinon je supprime l'image avec des messages d'erreur
                 unlink('../../assets/img/items/' . $item->image);
                 $errors['addItem'] = ITEM_ADD_ERROR;

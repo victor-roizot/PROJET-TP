@@ -116,7 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['categories'] = CATEGORIES_ERROR_EMPTY;
         }
 
-
         if (!empty($_POST['description'])) {
             if (!preg_match($regex['description'], $_POST['description'])) {
                 $item->description = clean($_POST['description']);
@@ -127,20 +126,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['description'] = ITEM_DESCRIPTION_ERROR_EMPTY;
         }
 
-
         // Si je n'ai aucune erreur
         if (empty($errors)) {
             
             if ($imageUploaded == true) {
                 // Si l'image s'enregistre
                 if (move_uploaded_file($_FILES['image']['tmp_name'], '../../assets/img/items/' . $item->image)) {
-
                     // Je crée la cabane et un message de succès.
                     if ($item->updateItem()) {
                         unlink('../../assets/img/items/' . $itemDetails->image);
                         $success = ITEM_UPDATE_SUCCESS;
                     } else {
-
                         // Sinon je supprime l'image avec des messages d'erreur
                         unlink('../../assets/img/items/' . $item->image);
                         $errors['updateItem'] = ITEM_UPDATE_ERROR;
@@ -153,7 +149,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($item->updateItem()) {
                     $success = ITEM_UPDATE_SUCCESS;
                 } else {
-
                     // Sinon je supprime l'image avec des messages d'erreur
                     $errors['updateItem'] = ITEM_UPDATE_ERROR;
                 }

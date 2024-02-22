@@ -24,7 +24,6 @@ class categories
         }
     }
 
-
     /**
      *  public function est une méthodes de la classe (fonction rattachée à une classe).
      * 
@@ -43,7 +42,6 @@ class categories
     /** requete test dans PHP MySQL
      *SELECT COUNT(`id`) FROM `hubx02_categories` WHERE `id` = 1;
      */
-
     
     /**
      * Récupère la  liste de toute les catégories dans la base de données

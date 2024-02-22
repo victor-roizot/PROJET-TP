@@ -2,7 +2,6 @@
 
 // Je crée mon tableau d'erreurs
 // MESSAGES D'ERREUR
-
 $errors = [];
 
 //USERS

@@ -5,7 +5,6 @@
         <p class="success"><?= $success ?></p>
     <?php } ?>
 
-
     <!-- UPDATE ADDRESS -->
     <?php if (isset($errors['updateAddress'])) { ?>
         <p class="errors"><?= $errors['updateAddress'] ?></p>
@@ -35,7 +34,6 @@
         </form>
     </div>
 
-
     <!-- UPDATE PHONENUMBER -->
     <?php if (isset($errors['updatePhoneNumber'])) { ?>
         <p class="errors"><?= $errors['updatePhoneNumber'] ?></p>
@@ -52,7 +50,6 @@
             <input class="submit" type="submit" value="Modifier" name="updatePhoneNumber">
         </form>
     </div>
-
 
     <!-- UPDATE EMAIL -->
     <?php if (isset($errors['updateEmail'])) { ?>

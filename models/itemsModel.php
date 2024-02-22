@@ -26,7 +26,6 @@ class Items
         }
     }
 
-
     /**
      * Ajoute un item (cabane a loué) dans la base de données
      * @param string $hut Le titre de la cabane
@@ -51,7 +50,6 @@ class Items
      *     VALUES ('cabane test', 'image de la cabane', 'Ceci est un la 1er cabane test ajouter pour être loué ', 2);
      */
 
-
     /**
      * Supprime un item selon son id
      * @param int $id L'id de l'item (cabane) à supprimer
@@ -67,7 +65,6 @@ class Items
     /**  requete test dans PHP MySQL
      * DELETE FROM `hubx02_items` WHERE `id` = 2;
      */
-
 
     /**
      * Récupère un item (cabane) par un son id
@@ -92,7 +89,6 @@ class Items
      *  WHERE `i`.`id` = 1;
      */
 
-
     /**
      * Récupère la liste de tous les Items (cabanes)
      * @return array
@@ -113,7 +109,6 @@ class Items
      * ORDER BY `i`.`id` ASC;
      */
 
-
     /**
      * Vérifie si un item existe dans la base de données avec son id
      * @param string $id le id de l'item
@@ -130,7 +125,6 @@ class Items
     /** requete test dans PHP MySQL
      * SELECT COUNT(`id`) FROM `hubx02_Items` WHERE `id` = 2;
      */
-
 
     /**
      * Met à jour  le titre, l'image et la description d'une item (cabane) 
