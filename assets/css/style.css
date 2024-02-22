@@ -9,7 +9,7 @@ body {
     background-image: url(../img/background_site3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Bodoni Moda", serif;
     display: flex;
     flex-direction: column;
     color: white;
@@ -89,7 +89,7 @@ nav {
 .navbar-mobile i {
     position: fixed;
     z-index: 10;
-    top: 10px;
+    top: 12px;
     right: 15px;
     font-size: 2rem;
     color: white;
@@ -116,10 +116,10 @@ nav {
 }
 
 .navbar-mobile .navbar-mobile-list a {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
     color: white;
-    padding: 1rem;
+    margin: 1rem;
 }
 
 .navbar-mobile li a:hover {
@@ -189,7 +189,7 @@ body main section {
     width: 60%;
 }
 
-#iframe{
+#iframe {
     border-radius: 20px;
     height: 25rem;
     width: 90%;

@@ -9,10 +9,10 @@
     <link rel="shortcut icon" href="../../assets/img/logo_cabin_escapes.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/style.css">
 
- <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/802nxm0o8zeejebmjzdtlfkaz62n2sdyg3af8osc5o65c7sm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: '#description'
@@ -24,9 +24,9 @@
 <body>
     <nav>
         <a href="/accueil"><img id="logo" src="../../assets/img/logo_cabin_escapes.png" alt="Logo"></a>
-        
+
         <ul class="navbar-desktop">
-            <li><a href="/accueil" class=lienNav >Accueil</a></li>
+            <li><a href="/accueil" class=lienNav>Accueil</a></li>
             <li><a href="/list-cabane" class=lienNav>Cabanes</a></li>
             <?php if (empty($_SESSION['user'])) { ?>
                 <li><a href="/inscription" class=lienNav>Inscription</a></li>
