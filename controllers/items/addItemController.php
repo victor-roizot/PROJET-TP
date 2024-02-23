@@ -15,13 +15,13 @@ if (empty($_SESSION['user'])) {
     exit();
 }
 
-// Récupère la classe Items (cabanes)
+// Instancie la classe Items (cabanes)
 $item = new Items();
 
-// Récupère la classe categories
+// Instancie la classe categories
 $categories = new categories();
 
-// Récupère la  liste de toute les catégories 
+// appel la méthode de la liste de toute les catégories 
 $categoriesList = $categories->getList();
 
 // Vérification du formulaire en post
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $item->hut = clean($_POST['hut']);
         } else {
 
-            // Sinon, je remplis mon tableau d'erreurs
+            // Sinon, j'envois un message d'erreur
             $errors['hut'] = ITEM_TITLE_ERROR_INVALID;
         }
     } else {
